@@ -43,16 +43,16 @@
      
 ## Sending Message To User
 
-- [x] You can use *sendMessage* function, this function get 3 parameter: 
-    - [ ] chat id 
-    - [ ] message 
-    - [ ] options 
+* You can use *sendMessage* function, this function get 3 parameter: 
+    1. chat id 
+    2. message 
+    3. options 
     
     options is an array, you can put something like parse_mode,... on it.
     [see this telegram api](https://core.telegram.org/bots/api#sendmessage)
     
-- [x] Some Examples:
-    - [ ] send simple message:
+* Some Examples:
+    * send simple message:
     
     ```
     sendMessage($message['chatId'], 'How can i help you?');    
@@ -62,7 +62,7 @@
     ```
         sendMessage($update['message']['chat']['id'], 'How can i help you?'); 
     ```
-    - [ ] send message whit keyBoard:
+    * send message whit keyBoard:
     
     ```
             sendMessage($message['chatId'],
@@ -89,7 +89,7 @@
 
    I'll show you later how can create button.
    
-   - [ ] send message whit some HTML tag:
+   * send message whit some HTML tag:
        
        ```
              sendMessage($message['chatId'],
@@ -108,16 +108,16 @@
         
 ## Create ReplyKeyboardMarkup
 
-- [x] You can use *createButton*, this function get 4 parameter, 3 of them is optional.
+* You can use *createButton*, this function get 4 parameter, 3 of them is optional.
     
-    -[ ] keys
-    -[ ] on_time_keyboad
-    -[ ] resize_keyboard
-    -[ ] selective 
+    1. keys
+    2. on_time_keyboad
+    3. resize_keyboard
+    4. selective 
     
     keys is an array, you make it and just have the key name, for create new row just type #newRow.
     
-    -[ ] example:
+    * example:
       
       ```
       createButton(
@@ -136,7 +136,7 @@
       
       ```
       
-      -[ ] how can create share phone number button? use *textShareNumber* for key and put any value you want to show the user, 
+      how can create share phone number button? use *textShareNumber* for key and put any value you want to show the user, 
       then create another key *request_contact* and put the value *true* for it.
       
       ```
@@ -150,7 +150,7 @@
 
       ```
       
-      -[ ] how can create share location button? create *textShareLocation* as key and put anything you want to show for user,
+      how can create share location button? create *textShareLocation* as key and put anything you want to show for user,
       then create another key *request_location* and put the value *true* for it. 
       
       ```
@@ -169,12 +169,12 @@
       
 ## Create InlineKeyboardMarkup
 
--[x] You can use *createInnerButton* as you know telegram have 3 kind of this button,
-   -[ ] callBack button
-   -[ ] URL button
-   -[ ] switch to inline button
+* You can use *createInnerButton* as you know telegram have 3 kind of this button,
+   1. callBack button
+   2. URL button
+   3. switch to inline button
    
--[x] example:
+* example:
 
 ```
 createInnerButton(array(
@@ -200,9 +200,9 @@ For URL button *url* . and the any url you want, for switch is just like this tw
 
 ## Handel Callback button
 
--[x] Use *answerCallBackQuery* this function get 2 parameter first callBackId and second message, message is optional, message will be toast for user.
+* Use *answerCallBackQuery* this function get 2 parameter first callBackId and second message, message is optional, message will be toast for user.
   
- -[ ] example:
+ * example:
  
  ```
  answerCallBackQuery($callBackMessage['callBackId'], 'this is jason 😎');
@@ -215,11 +215,11 @@ For URL button *url* . and the any url you want, for switch is just like this tw
  
 ## Send File
 
--[x] You can use *sendFile*, this function get 1 parameter, an array, on this array you must enter address of the file
+* You can use *sendFile*, this function get 1 parameter, an array, on this array you must enter address of the file
     , chat id, and type of the file. other thing like caption is optional.
     
-    -[ ] example:
-        -[ ] send Audio file:
+    * example:
+         send Audio file:
         
         ```
         sendFile(array(
@@ -232,7 +232,7 @@ For URL button *url* . and the any url you want, for switch is just like this tw
 
         ```
         
-        -[ ] send Sticker:
+         send Sticker:
         
         ```
         sendFile(array(
@@ -246,7 +246,7 @@ For URL button *url* . and the any url you want, for switch is just like this tw
 
         ```
         
-        -[ ] send Document:
+         send Document:
         
         ```
         sendFile(array(
@@ -260,7 +260,7 @@ For URL button *url* . and the any url you want, for switch is just like this tw
 
         ```
         
-        -[ ] send Video:
+         send Video:
         
         ```
         sendFile(array(
@@ -275,7 +275,7 @@ For URL button *url* . and the any url you want, for switch is just like this tw
 
         ```
         
-        -[ ] send picture:
+         send picture:
         
         ```
         sendFile(array(
@@ -290,11 +290,11 @@ For URL button *url* . and the any url you want, for switch is just like this tw
         
 ## Get File 
 
--[x] You can use *getFile*, this function get 2 parameter, first parameter is an array you receive in your json,
+* You can use *getFile*, this function get 2 parameter, first parameter is an array you receive in your json,
 and second parameter is where you want to store files.
-    -[ ] example:
+    * example:
     
-        -[ ] get picture:
+         get picture:
         ```
         getFile($message['photo'], 'download/photo');
         ```
@@ -304,40 +304,40 @@ and second parameter is where you want to store files.
         getFile($update['message']['photo'], 'download/photo');
         ```
         
-        -[ ] get document:
+        get document:
         
         ```
         getFile($message['document'], 'download/doc');
         ```
         
-        -[ ] get sticker:
+         get sticker:
         
         ```
         getFile($message['sticker'], 'download/sticker');
         ```
         
-        -[ ] get Audio:
+         get Audio:
         ```
         getFile($message['audio'], 'download/audio');
         ```
         
-    -[ ] File names are the id's file.
+    * File names are the id's file.
         
         
 ## Connect to mySql
         
--[x] First you must go to VSTBA.php find  *createDbConnection* and enter your,
+* First you must go to VSTBA.php find  *createDbConnection* and enter your,
        Host, user, pass and data base name in $dbHost, $dbUser, $dbPass, $dbName,
        after that you can use *runQuery* in your code
        
-    -[ ] example:
+    * example:
     ```
     runQuery("DELETE  FROM tableName WHERE id=" . $message['chatId'] );
     ```
     
-    -[ ] also if you like to use mysqli_real_escape_string, you can use *safeString* function
+   * also if you like to use mysqli_real_escape_string, you can use *safeString* function
        
-       -[ ] example:
+        example:
          
          ```
          runQuery("DELETE  FROM tableName WHERE id=" .safeString($message['chatId'])  . " AND ash_msg_msg='0'");
