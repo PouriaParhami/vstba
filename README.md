@@ -5,7 +5,7 @@
 ## Summary
 
 * A simple API to help you create your telegram bot faster and easier.
-* This is some function's i use to much, and i want share them whit you.
+* This is some function's i use alot, and i want share them with you.
 
 ## Before use
 
