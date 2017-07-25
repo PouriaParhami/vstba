@@ -678,29 +678,6 @@ function userMessage($data)
     }
     return $userMessage;
 
-    /* return array(
-
-         'message' => $update["message"]["text"],
-         'contact' => $update["message"]['contact'],
-         'contactPhoneNumber' => $update['message']['contact']['phone_number'],
-         'messageId' => $update['message']['message_id'],
-         'fromId' => $update['message']['from']['id'],
-         'fromFirstName' => $update['message']['from']['first_name'],
-         'fromLastName' => $update['message']['from']['last_name'],
-         'fromUserName' => $update['message']['from']['username'],
-         'fromLanguageCode' => $update['message']['from']['language_code'],
-         'chatId' => $update["message"]["chat"]["id"],
-         'chatFirstName' => $update['message']['chat']['first_name'],
-         'chatLastName' => $update['message']['chat']['last_name'],
-         'chatUserName' => $update['message']['chat']['username'],
-         'chatType' => $update['message']['chat']['type'],
-         'chatDate' => $update['message']['date'],
-         'photo' => $update['message']['photo'],
-         'document' => $update['message']['document'],
-         'sticker' => $update['message']['sticker'],
-         'audio' => $update['message']['audio'],
-
-     );*/
 }
 
 
@@ -803,42 +780,10 @@ function getCallBackQuery($update)
     }
     return $callBackQuery;
 
-
-    /* return array(
-
-         'callBackId' => $update['callback_query']['id'],
-         'chatInstance' => $update['callback_query']['chat_instance'],
-         'callBackData' => $update["callback_query"]["data"],
-
-         'fromId' => $update['callback_query']['from']['id'],
-         'fromFirstName' => $update['callback_query']['from']['first_name'],
-         'fromLastName' => $update['callback_query']['from']['last_name'],
-         'fromUserName' => $update['callback_query']['from']['username'],
-         'fromLanguageCode' => $update['callback_query']['from']['language_code'],
-
-         'messageId' => $update['callback_query']['message']['message_id'],
-         'messageFromId' => $update['callback_query']['message']['from']['id'],
-         'messageFromFirstName' => $update['callback_query']['message']['from']['first_name'],
-         'messageFromUserName' => $update['callback_query']['message']['from']['username'],
-
-         'chatId' => $update['callback_query']['message']['chat']['id'],
-         'chatFirstName' => $update['callback_query']['message']['chat']['first_name'],
-         'chatLastName' => $update['callback_query']['message']['chat']['last_name'],
-         'chatUserName' => $update['callback_query']['message']['chat']['username'],
-         'chatType' => $update['callback_query']['message']['chat']['type'],
-
-         'messageDate' => $update['callback_query']['message']['date'],
-         'messageText' => $update['callback_query']['message']['text'],
-
-     );*/
-
 }
 
 /**
  * Send Message to user
- *
- * API_URL: you must defined that in your bot php page like:
- *      define('API_URL', 'https://api.telegram.org/bot' . BOT_TOKEN . '/');
  *
  * BOT_TOKEN: you must defined that in your bot php page like:
  *      define('BOT_TOKEN', 'YOUR TOKEN ID');
@@ -922,7 +867,7 @@ function answerCallBackQuery($callBackId, $message = null)
  * Create normal buttons
  *
  *  Just call the function and put the array on it, in array just write the key name's,
- *  for make new row just write 'KNR' mean keyboard new row and write your key name's for that
+ *  for make new row just write '#newRow' mean keyboard new row and write your key name's for that
  *
  * @param $keys
  * @param bool $one_time_keyboard
@@ -1050,8 +995,8 @@ function createInnerButton($keys)
 /**
  *
  * This function send file to user
- * Just call it and pass an assosiative array with options such az,
- * Dont forget write the url and chat id and type in to array like : api_url => 'the url', chat_id => 'the id', type = 'photo'
+ * Just call it and pass an assosiative array with options such as,
+ * Dont forget write the url and chat id and type in to array like :  chat_id => 'the id', type = 'photo'
  * Type mean what is that your file you want to send ? audio? photo ? ...
  *
  * @param $options
@@ -1157,7 +1102,7 @@ function sendFile($options)
 
 /**
  *
- * This function help you to download Image
+ * This function help you to download Files
  *
  * @param $fileIds
  * @param $download_path
