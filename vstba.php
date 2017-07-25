@@ -1,4 +1,5 @@
 <?php
+
 /**
  *  Welcome to VSTBA V 1.0.0
  *  Very Simple Telegram Bot API
@@ -20,8 +21,10 @@ ini_set('display_startup_errors', TRUE);
  *
  */
 
-define('BOT_TOKEN', 'your token id');
+define('BOT_TOKEN', '');
 define('API_URL', 'https://api.telegram.org/bot' . BOT_TOKEN);
+
+
 
 /**
  *
@@ -212,14 +215,17 @@ function iterateDataBasic($userData, $type, $firsName, $theArray)
     return $theArray;
 }
 
+
 /**
  *
  * function return you an array, information about message, like chat_id, text, phone number
- *
+ * It's not complete, but you can add more :)
  * @param $data
  * @return array
  *
+ *
  */
+
 
 function userMessage($data)
 {
@@ -697,13 +703,13 @@ function userMessage($data)
      );*/
 }
 
+
 /**
  *
  * This function give you array, that have callback_query
  * You can use it to get callback_data from inner keyboard
  * @param $update
  * @return array
- *
  */
 
 function getCallBackQuery($update)
@@ -831,8 +837,11 @@ function getCallBackQuery($update)
 /**
  * Send Message to user
  *
- * This Function accept parameter $option, this parameter Optional,
- * And you can put the array on it for replay_markup, parse_mode and etc ...
+ * API_URL: you must defined that in your bot php page like:
+ *      define('API_URL', 'https://api.telegram.org/bot' . BOT_TOKEN . '/');
+ *
+ * BOT_TOKEN: you must defined that in your bot php page like:
+ *      define('BOT_TOKEN', 'YOUR TOKEN ID');
  *
  * @param $chatId
  * @param $message
@@ -890,10 +899,10 @@ function sendMessage($chatId, $message, $options = null)
 
 }
 
+
 /**
  *
  * This function handel answerCallBackQuery
- *
  * @param $callBackId
  * @param $message
  *
@@ -907,12 +916,13 @@ function answerCallBackQuery($callBackId, $message = null)
 
 }
 
+
 /**
  *
  * Create normal buttons
  *
  *  Just call the function and put the array on it, in array just write the key name's,
- *  For make new row just write '#newRow'  and write your key name's after that
+ *  for make new row just write 'KNR' mean keyboard new row and write your key name's for that
  *
  * @param $keys
  * @param bool $one_time_keyboard
@@ -921,7 +931,6 @@ function answerCallBackQuery($callBackId, $message = null)
  * @return string
  *
  */
-
 function createButton($keys, $one_time_keyboard = false, $resize_keyboard = true, $selective = true)
 {
 
@@ -945,9 +954,18 @@ function createButton($keys, $one_time_keyboard = false, $resize_keyboard = true
 
                 array_push($keyBoardRow, array('text' => $text, 'request_contact' => $value));
 
+                //is that share location button?
+            }elseif ($key === 'request_location' && $value === true){
+
+                array_push($keyBoardRow, array('text' => $text, 'request_location' => $value));
+
             } else {
-                // is that the text of the share phone number?
-                if ($key === 'text') {
+                // is that the text of share phone number?
+                if ($key === 'textShareNumber') {
+
+                    $text = $value;
+                //is that the text of share location button?
+                }elseif ($key === 'textShareLocation'){
 
                     $text = $value;
 
@@ -972,6 +990,7 @@ function createButton($keys, $one_time_keyboard = false, $resize_keyboard = true
     return json_encode($replyMarkup, true);
 
 }
+
 
 /**
  *  This function create inner key Board
@@ -1031,15 +1050,15 @@ function createInnerButton($keys)
 /**
  *
  * This function send file to user
- * Just call it and pass an associative array with options such az,
- * Type, thar mean what kind of file you want to send?, audio? photo? ...
+ * Just call it and pass an assosiative array with options such az,
+ * Dont forget write the url and chat id and type in to array like : api_url => 'the url', chat_id => 'the id', type = 'photo'
+ * Type mean what is that your file you want to send ? audio? photo ? ...
  *
  * @param $options
  * @return bool|mixed
  * @throws Exception
  *
  */
-
 function sendFile($options)
 {
 
@@ -1138,14 +1157,13 @@ function sendFile($options)
 
 /**
  *
- * This function help you to download File from user
+ * This function help you to download Image
  *
  * @param $fileIds
  * @param $download_path
  *
  *
  */
-
 function getFile($fileIds, $download_path)
 {
 
@@ -1204,13 +1222,13 @@ function getFile($fileIds, $download_path)
 
 }
 
+
 /**
  *
  * create Data base connection
  *
  *
  */
-
 function createDbConnection()
 {
 
@@ -1236,7 +1254,6 @@ function createDbConnection()
  * @return string
  *
  */
-
 function safeString($data)
 {
 
@@ -1246,7 +1263,7 @@ function safeString($data)
 
 /**
  *
- * Run mySql Query
+ * Connect to mySql DataBase
  * @param $myQuery
  * @return bool|mysqli_result
  *
