@@ -1,7 +1,7 @@
 <?php
 
 /**
- *  Welcome to VSTBA V 1.0.0
+ *  Welcome to VSTBA V 1.1.2
  *  Very Simple Telegram Bot API
  *  Author: Pouria Parhami
  *  Organization: darkoobweb
@@ -25,7 +25,6 @@ define('BOT_TOKEN', '');
 define('API_URL', 'https://api.telegram.org/bot' . BOT_TOKEN);
 
 
-
 /**
  *
  * This Function iterate User, Chat, Entities, Photo, Location
@@ -41,178 +40,178 @@ function iterateDataBasic($userData, $type, $firsName, $theArray)
 {
 
 
-    switch ($type) {
+	switch ($type) {
 
-        case 'user':
+		case 'user':
 
-            foreach ($userData as $userDataKey => $userDataValue) {
+			foreach ($userData as $userDataKey => $userDataValue) {
 
-                switch ($userDataKey) {
+				switch ($userDataKey) {
 
-                    case 'id':
-                        $theArray[$firsName . 'Id'] = $userDataValue;
-                        break;
+					case 'id':
+						$theArray[$firsName . 'Id'] = $userDataValue;
+						break;
 
-                    case 'first_name':
-                        $theArray[$firsName . 'FirstName'] = $userDataValue;
-                        break;
+					case 'first_name':
+						$theArray[$firsName . 'FirstName'] = $userDataValue;
+						break;
 
-                    case 'last_name':
-                        $theArray[$firsName . 'LastName'] = $userDataValue;
-                        break;
+					case 'last_name':
+						$theArray[$firsName . 'LastName'] = $userDataValue;
+						break;
 
-                    case 'username':
-                        $theArray[$firsName . 'UserName'] = $userDataValue;
-                        break;
+					case 'username':
+						$theArray[$firsName . 'UserName'] = $userDataValue;
+						break;
 
-                    case 'language_code':
-                        $theArray[$firsName . 'LangCode'] = $userDataValue;
-                        break;
+					case 'language_code':
+						$theArray[$firsName . 'LangCode'] = $userDataValue;
+						break;
 
-                }
-            }
+				}
+			}
 
 
-            break;
+			break;
 
-        case 'chat':
+		case 'chat':
 
-            foreach ($userData as $userDataKey => $userDataValue) {
+			foreach ($userData as $userDataKey => $userDataValue) {
 
-                switch ($userDataKey) {
+				switch ($userDataKey) {
 
-                    case 'id':
-                        $theArray[$firsName . 'Id'] = $userDataValue;
-                        break;
+					case 'id':
+						$theArray[$firsName . 'Id'] = $userDataValue;
+						break;
 
-                    case 'type':
-                        $theArray[$firsName . 'Type'] = $userDataValue;
-                        break;
+					case 'type':
+						$theArray[$firsName . 'Type'] = $userDataValue;
+						break;
 
-                    case 'title':
-                        $theArray[$firsName . 'Title'] = $userDataValue;
-                        break;
+					case 'title':
+						$theArray[$firsName . 'Title'] = $userDataValue;
+						break;
 
-                    case 'username':
-                        $theArray[$firsName . 'Username'] = $userDataValue;
-                        break;
+					case 'username':
+						$theArray[$firsName . 'Username'] = $userDataValue;
+						break;
 
-                    case 'first_name':
-                        $theArray[$firsName . 'FirstName'] = $userDataValue;
-                        break;
+					case 'first_name':
+						$theArray[$firsName . 'FirstName'] = $userDataValue;
+						break;
 
-                    case 'last_name':
-                        $theArray[$firsName . 'LastName'] = $userDataValue;
-                        break;
+					case 'last_name':
+						$theArray[$firsName . 'LastName'] = $userDataValue;
+						break;
 
-                    case 'all_members_are_administrators':
-                        $theArray[$firsName . 'AllMembersAreAdmin'] = $userDataValue;
-                        break;
+					case 'all_members_are_administrators':
+						$theArray[$firsName . 'AllMembersAreAdmin'] = $userDataValue;
+						break;
 
-                    case 'photo':
-                        $theArray[$firsName . 'Photo'] = $userDataValue;
-                        break;
+					case 'photo':
+						$theArray[$firsName . 'Photo'] = $userDataValue;
+						break;
 
-                    case 'description':
-                        $theArray[$firsName . 'Description'] = $userDataValue;
-                        break;
+					case 'description':
+						$theArray[$firsName . 'Description'] = $userDataValue;
+						break;
 
-                    case 'invite_link':
-                        $theArray[$firsName . 'InviteLine'] = $userDataValue;
-                        break;
+					case 'invite_link':
+						$theArray[$firsName . 'InviteLine'] = $userDataValue;
+						break;
 
-                }
-            }
+				}
+			}
 
-            break;
+			break;
 
-        case 'entities':
+		case 'entities':
 
-            foreach ($userData as $userDataKey => $userDataValue) {
+			foreach ($userData as $userDataKey => $userDataValue) {
 
-                switch ($userDataKey) {
+				switch ($userDataKey) {
 
-                    case 'type':
+					case 'type':
 
-                        $theArray[$firsName . 'Type'] = $userDataValue;
+						$theArray[$firsName . 'Type'] = $userDataValue;
 
-                        break;
+						break;
 
-                    case 'offset':
+					case 'offset':
 
-                        $theArray[$firsName . 'Offset'] = $userDataValue;
+						$theArray[$firsName . 'Offset'] = $userDataValue;
 
-                        break;
+						break;
 
-                    case 'length':
+					case 'length':
 
-                        $theArray[$firsName . 'Length'] = $userDataValue;
+						$theArray[$firsName . 'Length'] = $userDataValue;
 
-                        break;
+						break;
 
-                    case 'url':
+					case 'url':
 
-                        $theArray[$firsName . 'Url'] = $userDataValue;
+						$theArray[$firsName . 'Url'] = $userDataValue;
 
-                        break;
+						break;
 
-                    case 'user':
+					case 'user':
 
-                        $theArray = iterateDataBasic($userData['user'], 'user', 'entitiesUser', $theArray);
+						$theArray = iterateDataBasic($userData['user'], 'user', 'entitiesUser', $theArray);
 
-                        break;
-                }
-            }
-            break;
+						break;
+				}
+			}
+			break;
 
-        case 'photo':
+		case 'photo':
 
-            foreach ($userData[0] as $userDataKey => $userDataValue) {
+			foreach ($userData[0] as $userDataKey => $userDataValue) {
 
-                switch ($userDataKey) {
+				switch ($userDataKey) {
 
-                    case 'file_id':
-                        $theArray[$firsName . 'FileId'] = $userDataValue;
-                        break;
+					case 'file_id':
+						$theArray[$firsName . 'FileId'] = $userDataValue;
+						break;
 
-                    case 'width':
-                        $theArray[$firsName . 'Width'] = $userDataValue;
-                        break;
+					case 'width':
+						$theArray[$firsName . 'Width'] = $userDataValue;
+						break;
 
-                    case 'height':
-                        $theArray[$firsName . 'Height'] = $userDataValue;
-                        break;
+					case 'height':
+						$theArray[$firsName . 'Height'] = $userDataValue;
+						break;
 
-                    case 'file_size':
-                        $theArray[$firsName . 'gamePhotoFileSize'] = $userDataValue;
-                        break;
+					case 'file_size':
+						$theArray[$firsName . 'gamePhotoFileSize'] = $userDataValue;
+						break;
 
-                }
-            }
+				}
+			}
 
-            break;
+			break;
 
-        case 'location':
+		case 'location':
 
-            foreach ($userData as $userDataKey => $userDataValue) {
+			foreach ($userData as $userDataKey => $userDataValue) {
 
-                switch ($userDataKey) {
+				switch ($userDataKey) {
 
-                    case 'longitude':
-                        $theArray[$firsName . 'FileLongitude'] = $userDataValue;
-                        break;
+					case 'longitude':
+						$theArray[$firsName . 'FileLongitude'] = $userDataValue;
+						break;
 
-                    case 'latitude':
-                        $theArray[$firsName . 'Latitude'] = $userDataValue;
-                        break;
+					case 'latitude':
+						$theArray[$firsName . 'Latitude'] = $userDataValue;
+						break;
 
-                }
-            }
+				}
+			}
 
-            break;
-    }
+			break;
+	}
 
-    return $theArray;
+	return $theArray;
 }
 
 
@@ -230,453 +229,453 @@ function iterateDataBasic($userData, $type, $firsName, $theArray)
 function userMessage($data)
 {
 
-    $userMessage = array();
+	$userMessage = array();
 
-    if ($data !== null) {
+	if ($data !== null) {
 
-        foreach ($data as $key => $value) {
+		foreach ($data as $key => $value) {
 
-            if ($key === 'update_id') {
+			if ($key === 'update_id') {
 
-                $userMessage['updateId'] = $value;
-            }
+				$userMessage['updateId'] = $value;
+			}
 
-            if ($key === 'message') {
+			if ($key === 'message') {
 
-                foreach ($data['message'] as $msKey => $msValue) {
+				foreach ($data['message'] as $msKey => $msValue) {
 
-                    switch ($msKey) {
+					switch ($msKey) {
 
-                        case 'message_id':
-                            $userMessage['messageId'] = $msValue;
-                            break;
+						case 'message_id':
+							$userMessage['messageId'] = $msValue;
+							break;
 
-                        case 'date':
-                            $userMessage['messageDate'] = $msValue;
-                            break;
+						case 'date':
+							$userMessage['messageDate'] = $msValue;
+							break;
 
-                        case 'text':
-                            $userMessage['messageText'] = $msValue;
-                            break;
+						case 'text':
+							$userMessage['messageText'] = $msValue;
+							break;
 
-                        case 'from':
+						case 'from':
 
-                            $userMessage = iterateDataBasic($data['message']['from'], 'user', 'from', $userMessage);
+							$userMessage = iterateDataBasic($data['message']['from'], 'user', 'from', $userMessage);
 
-                            break;
+							break;
 
-                        case 'chat':
+						case 'chat':
 
-                            $userMessage = iterateDataBasic($data['message']['chat'], 'chat', 'chat', $userMessage);
+							$userMessage = iterateDataBasic($data['message']['chat'], 'chat', 'chat', $userMessage);
 
-                            break;
+							break;
 
-                        case 'forward_from':
+						case 'forward_from':
 
-                            $userMessage = iterateDataBasic($data['message']['forward_from'], 'user', 'forwardFrom', $userMessage);
+							$userMessage = iterateDataBasic($data['message']['forward_from'], 'user', 'forwardFrom', $userMessage);
 
-                            break;
+							break;
 
-                        case 'forward_from_chat':
+						case 'forward_from_chat':
 
-                            $userMessage = iterateDataBasic($data['message']['forward_from_chat'], 'chat', 'forwardFromChat', $userMessage);
+							$userMessage = iterateDataBasic($data['message']['forward_from_chat'], 'chat', 'forwardFromChat', $userMessage);
 
-                            break;
+							break;
 
-                        case 'forward_from_message_id':
+						case 'forward_from_message_id':
 
-                            $userMessage['forwardFromMessageId'] = $msValue;
+							$userMessage['forwardFromMessageId'] = $msValue;
 
-                            break;
+							break;
 
-                        case 'forward_date':
+						case 'forward_date':
 
-                            $userMessage['forwardDate'] = $msValue;
+							$userMessage['forwardDate'] = $msValue;
 
-                            break;
+							break;
 
-                        case 'reply_to_message':
+						case 'reply_to_message':
 
-                            //thinking about this...
+							//thinking about this...
 
-                            break;
+							break;
 
-                        case 'edit_date':
+						case 'edit_date':
 
-                            $userMessage['editDate'] = $msValue;
+							$userMessage['editDate'] = $msValue;
 
-                            break;
+							break;
 
-                        case 'entities':
+						case 'entities':
 
-                            $userMessage = iterateDataBasic($data['message']['entities'][0], 'entities', 'entities', $userMessage);
+							$userMessage = iterateDataBasic($data['message']['entities'][0], 'entities', 'entities', $userMessage);
 
-                            break;
+							break;
 
-                        case 'audio':
+						case 'audio':
 
-                            $userMessage['audio'] = $data['message']['audio'];
+							$userMessage['audio'] = $data['message']['audio'];
 
-                            break;
+							break;
 
-                        case 'document':
+						case 'document':
 
-                            $userMessage['document'] = $data['message']['document'];
+							$userMessage['document'] = $data['message']['document'];
 
 
-                            break;
+							break;
 
-                        case 'game':
+						case 'game':
 
-                            foreach ($data['message']['game'] as $gameKey => $gameValue) {
+							foreach ($data['message']['game'] as $gameKey => $gameValue) {
 
-                                switch ($gameKey) {
+								switch ($gameKey) {
 
-                                    case 'title':
+									case 'title':
 
-                                        $userMessage['gameTitle'] = $gameValue;
+										$userMessage['gameTitle'] = $gameValue;
 
-                                        break;
+										break;
 
-                                    case 'description':
+									case 'description':
 
-                                        $userMessage['gameDescription'] = $gameValue;
+										$userMessage['gameDescription'] = $gameValue;
 
-                                        break;
+										break;
 
-                                    case 'photo':
+									case 'photo':
 
-                                        $userMessage = iterateDataBasic($data['message']['game']['photo'], 'photo', 'gamePhoto', $userMessage);
+										$userMessage = iterateDataBasic($data['message']['game']['photo'], 'photo', 'gamePhoto', $userMessage);
 
-                                        break;
+										break;
 
-                                    case 'text':
+									case 'text':
 
-                                        $userMessage['gameText'] = $gameValue;
+										$userMessage['gameText'] = $gameValue;
 
-                                        break;
+										break;
 
-                                    case 'text_entities':
+									case 'text_entities':
 
-                                        foreach ($data['message']['game']['text_entities'] as $gameTextEntitiKey => $gameTextEntitiValue) {
+										foreach ($data['message']['game']['text_entities'] as $gameTextEntitiKey => $gameTextEntitiValue) {
 
-                                            switch ($gameTextEntitiKey) {
+											switch ($gameTextEntitiKey) {
 
-                                                case 'type';
+												case 'type';
 
-                                                    $userMessage['textEntitiType'] = $gameTextEntitiValue;
+													$userMessage['textEntitiType'] = $gameTextEntitiValue;
 
-                                                    break;
+													break;
 
-                                                case 'offset':
+												case 'offset':
 
-                                                    $userMessage['textEntitiOffset'] = $gameTextEntitiValue;
+													$userMessage['textEntitiOffset'] = $gameTextEntitiValue;
 
-                                                    break;
+													break;
 
-                                                case 'length':
+												case 'length':
 
-                                                    $userMessage['textEntitiLength'] = $gameTextEntitiValue;
+													$userMessage['textEntitiLength'] = $gameTextEntitiValue;
 
-                                                    break;
+													break;
 
-                                                case 'url':
+												case 'url':
 
-                                                    $userMessage['textEntitiUrl'] = $gameTextEntitiValue;
+													$userMessage['textEntitiUrl'] = $gameTextEntitiValue;
 
-                                                    break;
+													break;
 
-                                            }
-                                        }
+											}
+										}
 
-                                        break;
+										break;
 
-                                    case 'animation':
+									case 'animation':
 
-                                        foreach ($data['message']['game']['animation'] as $gameAnimKey => $gameAnimValue) {
+										foreach ($data['message']['game']['animation'] as $gameAnimKey => $gameAnimValue) {
 
-                                            switch ($gameAnimKey) {
+											switch ($gameAnimKey) {
 
-                                                case 'file_id':
+												case 'file_id':
 
-                                                    $userMessage['gameAnimFileId'] = $gameValue;
+													$userMessage['gameAnimFileId'] = $gameValue;
 
-                                                    break;
+													break;
 
-                                                case 'thumb':
+												case 'thumb':
 
-                                                    foreach ($data['message']['game']['animation']['thumb'] as $animThumbKey => $animThumbValue) {
-                                                    }
+													foreach ($data['message']['game']['animation']['thumb'] as $animThumbKey => $animThumbValue) {
+													}
 
-                                                    // switch ()
+													// switch ()
 
-                                                    break;
+													break;
 
-                                                case 'file_name':
+												case 'file_name':
 
-                                                    $userMessage['gameAnimFileId'] = $gameValue;
+													$userMessage['gameAnimFileId'] = $gameValue;
 
-                                                    break;
+													break;
 
-                                                case 'mime_type':
+												case 'mime_type':
 
-                                                    $userMessage['gameAnimFileId'] = $gameValue;
+													$userMessage['gameAnimFileId'] = $gameValue;
 
-                                                    break;
+													break;
 
-                                                case 'file_size':
+												case 'file_size':
 
-                                                    $userMessage['gameAnimFileSize'] = $gameValue;
+													$userMessage['gameAnimFileSize'] = $gameValue;
 
-                                                    break;
+													break;
 
-                                            }
+											}
 
-                                        }
+										}
 
-                                        break;
+										break;
 
-                                }
+								}
 
-                            }
+							}
 
 
-                            break;
+							break;
 
-                        case 'photo':
+						case 'photo':
 
-                            $userMessage['photo'] = $data['message']['photo'];
+							$userMessage['photo'] = $data['message']['photo'];
 
-                            break;
+							break;
 
-                        case 'sticker':
+						case 'sticker':
 
-                            $userMessage['sticker'] = $data['message']['sticker'];
+							$userMessage['sticker'] = $data['message']['sticker'];
 
-                            break;
+							break;
 
-                        case 'video':
+						case 'video':
 
-                            $userMessage['video'] = $data['message']['video'];
+							$userMessage['video'] = $data['message']['video'];
 
 
-                            break;
+							break;
 
-                        case 'voice':
+						case 'voice':
 
-                            $userMessage['voice'] = $data['message']['voice'];
+							$userMessage['voice'] = $data['message']['voice'];
 
-                            break;
+							break;
 
-                        case 'video_note':
+						case 'video_note':
 
-                            $userMessage['videoNote'] = $data['message']['video_note'];
+							$userMessage['videoNote'] = $data['message']['video_note'];
 
-                            break;
+							break;
 
-                        case 'new_chat_members' :
+						case 'new_chat_members' :
 
-                            foreach ($data['message']['new_chat_members'] as $newChatMemberKey => $newChatMemberValue)
+							foreach ($data['message']['new_chat_members'] as $newChatMemberKey => $newChatMemberValue)
 
-                                $userMessage = iterateDataBasic($data['message']['new_chat_members'], 'user', 'newChatMember', $userMessage);
+								$userMessage = iterateDataBasic($data['message']['new_chat_members'], 'user', 'newChatMember', $userMessage);
 
-                            break; // it must be 2 array
+							break; // it must be 2 array
 
-                        case 'caption':
+						case 'caption':
 
-                            $userMessage['videoNoteFileId'] = $msValue;
+							$userMessage['videoNoteFileId'] = $msValue;
 
-                            break;
+							break;
 
-                        case 'contact':
+						case 'contact':
 
-                            foreach ($data['message']['contact'] as $contactKey => $contactValue) {
+							foreach ($data['message']['contact'] as $contactKey => $contactValue) {
 
-                                switch ($contactKey) {
+								switch ($contactKey) {
 
-                                    case 'phone_number':
+									case 'phone_number':
 
-                                        $userMessage['contactPhoneNumber'] = $contactValue;
+										$userMessage['contactPhoneNumber'] = $contactValue;
 
-                                        break;
+										break;
 
-                                    case 'first_name':
+									case 'first_name':
 
-                                        $userMessage['contactFirstName'] = $contactValue;
+										$userMessage['contactFirstName'] = $contactValue;
 
-                                        break;
+										break;
 
-                                    case 'last_name':
+									case 'last_name':
 
-                                        $userMessage['contentLastName'] = $contactValue;
+										$userMessage['contactLastName'] = $contactValue;
 
-                                        break;
+										break;
 
-                                    case 'user_id':
+									case 'user_id':
 
-                                        $userMessage['contactUserId'] = $contactValue;
+										$userMessage['contactUserId'] = $contactValue;
 
-                                        break;
+										break;
 
-                                }
+								}
 
-                            }
+							}
 
-                            break;
+							break;
 
-                        case 'location':
+						case 'location':
 
-                            $userMessage = iterateDataBasic($data['message']['location'], 'location', 'location', $userMessage);
+							$userMessage = iterateDataBasic($data['message']['location'], 'location', 'location', $userMessage);
 
-                            break;
+							break;
 
-                        case 'venue':
+						case 'venue':
 
-                            foreach ($data['message']['venue'] as $venueKey => $venueValue) {
+							foreach ($data['message']['venue'] as $venueKey => $venueValue) {
 
-                                switch ($venueKey) {
+								switch ($venueKey) {
 
-                                    case 'location':
+									case 'location':
 
-                                        $userMessage = iterateDataBasic($data['message']['venue']['location'], 'location', 'venueLocation', $userMessage);
+										$userMessage = iterateDataBasic($data['message']['venue']['location'], 'location', 'venueLocation', $userMessage);
 
-                                        break;
+										break;
 
-                                    case 'title':
+									case 'title':
 
-                                        $userMessage['venueTitle'] = $venueValue;
+										$userMessage['venueTitle'] = $venueValue;
 
-                                        break;
+										break;
 
-                                    case 'address':
+									case 'address':
 
-                                        $userMessage['venueAddress'] = $venueValue;
+										$userMessage['venueAddress'] = $venueValue;
 
-                                        break;
+										break;
 
-                                    case 'foursquare_id':
+									case 'foursquare_id':
 
-                                        $userMessage['venueFoursquareId'] = $venueValue;
+										$userMessage['venueFoursquareId'] = $venueValue;
 
-                                        break;
+										break;
 
-                                }
+								}
 
-                            }
+							}
 
-                            break;
+							break;
 
-                        case 'new_chat_member':
+						case 'new_chat_member':
 
-                            $userMessage = iterateDataBasic($data['message']['new_chat_member'], 'user', 'newChatMember', $userMessage);
+							$userMessage = iterateDataBasic($data['message']['new_chat_member'], 'user', 'newChatMember', $userMessage);
 
-                            break;
+							break;
 
-                        case 'left_chat_member':
+						case 'left_chat_member':
 
-                            $userMessage = iterateDataBasic($data['message']['left_chat_member'], 'user', 'leftChatMember', $userMessage);
+							$userMessage = iterateDataBasic($data['message']['left_chat_member'], 'user', 'leftChatMember', $userMessage);
 
-                            break;
+							break;
 
-                        case 'new_chat_title':
+						case 'new_chat_title':
 
-                            $userMessage['newChatTitle'] = $msValue;
+							$userMessage['newChatTitle'] = $msValue;
 
-                            break;
+							break;
 
-                        case 'new_chat_photo':
+						case 'new_chat_photo':
 
 
-                            break; // not handel
+							break; // not handel
 
-                        case 'delete_chat_photo':
+						case 'delete_chat_photo':
 
-                            $userMessage['deleteChatPhoto'] = $msValue;
+							$userMessage['deleteChatPhoto'] = $msValue;
 
-                            break;
+							break;
 
-                        case 'group_chat_created':
+						case 'group_chat_created':
 
-                            $userMessage['groupChatCreated'] = $msValue;
+							$userMessage['groupChatCreated'] = $msValue;
 
-                            break;
+							break;
 
-                        case'supergroup_chat_created':
+						case'supergroup_chat_created':
 
-                            $userMessage['superGroupChatCreated'] = $msValue;
+							$userMessage['superGroupChatCreated'] = $msValue;
 
-                            break;
+							break;
 
-                        case'channel_chat_created':
+						case'channel_chat_created':
 
-                            $userMessage['ChannelChatCreated'] = $msValue;
+							$userMessage['ChannelChatCreated'] = $msValue;
 
-                            break;
+							break;
 
-                        case'migrate_to_chat_id':
+						case'migrate_to_chat_id':
 
-                            $userMessage['migrateToChatId'] = $msValue;
+							$userMessage['migrateToChatId'] = $msValue;
 
-                            break;
+							break;
 
-                        case'migrate_from_chat_id':
+						case'migrate_from_chat_id':
 
-                            $userMessage['migrateFromChatId'] = $msValue;
+							$userMessage['migrateFromChatId'] = $msValue;
 
-                            break;
+							break;
 
-                        case'pinned_message': //not handel
+						case'pinned_message': //not handel
 
 
-                            break;
+							break;
 
-                        case'invoice':
+						case'invoice':
 
-                            foreach ($data['message']['invoice'] as $invoiceKey => $invoiceValue) {
+							foreach ($data['message']['invoice'] as $invoiceKey => $invoiceValue) {
 
-                                switch ($invoiceKey) {
+								switch ($invoiceKey) {
 
-                                    case 'title':
+									case 'title':
 
-                                        $userMessage['invoiceTitle'] = $invoiceValue;
+										$userMessage['invoiceTitle'] = $invoiceValue;
 
-                                        break;
+										break;
 
-                                    case 'description':
+									case 'description':
 
-                                        $userMessage['invoiceDescription'] = $invoiceValue;
+										$userMessage['invoiceDescription'] = $invoiceValue;
 
-                                        break;
+										break;
 
-                                    case 'start_parameter':
+									case 'start_parameter':
 
-                                        $userMessage['invoiceStartParameter'] = $invoiceValue;
+										$userMessage['invoiceStartParameter'] = $invoiceValue;
 
-                                        break;
+										break;
 
-                                    case 'currency':
+									case 'currency':
 
-                                        $userMessage['invoiceCurrency'] = $invoiceValue;
+										$userMessage['invoiceCurrency'] = $invoiceValue;
 
-                                        break;
+										break;
 
-                                    case 'total_amount':
+									case 'total_amount':
 
-                                        $userMessage['invoiceTotalAmount'] = $invoiceValue;
+										$userMessage['invoiceTotalAmount'] = $invoiceValue;
 
-                                        break;
+										break;
 
-                                }
+								}
 
-                            }
+							}
 
-                            break;
-                    }
-                }
-            }
-        }
-    }
-    return $userMessage;
+							break;
+					}
+				}
+			}
+		}
+	}
+	return $userMessage;
 
 }
 
@@ -692,93 +691,93 @@ function userMessage($data)
 function getCallBackQuery($update)
 {
 
-    $callBackQuery = array();
+	$callBackQuery = array();
 
-    if ($update !== null) {
-
-
-        foreach ($update as $updateKey => $updateValue) {
+	if ($update !== null) {
 
 
-            if ($updateKey === 'update_id') {
-
-                $callBackQuery['updateId'] = $updateValue;
-
-            }
-
-            if ($updateKey === 'callback_query') {
-
-                foreach ($update['callback_query'] as $callBackKey => $callBackValue) {
-
-                    switch ($callBackKey) {
-
-                        case 'id':
-
-                            $callBackQuery['callBackId'] = $callBackValue;
-
-                            break;
-
-                        case 'from':
-
-                            $callBackQuery = iterateDataBasic($update['callback_query']['from'], 'user', 'callBackFrom', $callBackQuery);
-
-                            break;
-
-                        case 'message':
-
-                            //original message object
-                            $callBackQuery['callBackMessage'] = $update['callback_query']['message'];
-
-                            //some useful data
-
-                            $callBackQuery['callBackMsgId'] = $update['callback_query']['message']['message_id'];
-                            $callBackQuery['callBackMsgFromId'] = $update['callback_query']['message']['from']['id'];
-                            $callBackQuery['callBackMsgFromFirstName'] = $update['callback_query']['message']['from']['first_name'];
-                            $callBackQuery['callBackMsgFromUserName'] = $update['callback_query']['message']['from']['username'];
-
-                            $callBackQuery['callBackMsgChatId'] = $update['callback_query']['message']['chat']['id'];
-                            $callBackQuery['callBackMsgChatFirstName'] = $update['callback_query']['message']['chat']['first_name'];
-                            $callBackQuery['callBackMsgChatLastName'] = $update['callback_query']['message']['chat']['last_name'];
-                            $callBackQuery['callBackMsgChatUserName'] = $update['callback_query']['message']['chat']['username'];
-                            $callBackQuery['callBackMsgChatType'] = $update['callback_query']['message']['chat']['type'];
-
-                            $callBackQuery['callBackMsgDate'] = $update['callback_query']['message']['date'];
-                            $callBackQuery['callBackMsgText'] = $update['callback_query']['message']['text'];
+		foreach ($update as $updateKey => $updateValue) {
 
 
-                            break;
+			if ($updateKey === 'update_id') {
 
-                        case 'inline_message_id':
+				$callBackQuery['updateId'] = $updateValue;
 
-                            $callBackQuery['callBackQueryInlineMessageId'] = $callBackValue;
+			}
 
-                            break;
+			if ($updateKey === 'callback_query') {
 
-                        case 'chat_instance':
+				foreach ($update['callback_query'] as $callBackKey => $callBackValue) {
 
-                            $callBackQuery['chatInstance'] = $callBackValue;
+					switch ($callBackKey) {
 
-                            break;
+						case 'id':
 
-                        case 'data':
+							$callBackQuery['callBackId'] = $callBackValue;
 
-                            $callBackQuery['callBackData'] = $callBackValue;
+							break;
 
-                            break;
+						case 'from':
 
-                        case 'game_short_name':
+							$callBackQuery = iterateDataBasic($update['callback_query']['from'], 'user', 'callBackFrom', $callBackQuery);
 
-                            $callBackQuery['callBackQueryGameShortName'] = $callBackValue;
+							break;
 
-                            break;
+						case 'message':
 
-                    }
+							//original message object
+							$callBackQuery['callBackMessage'] = $update['callback_query']['message'];
 
-                }
-            }
-        }
-    }
-    return $callBackQuery;
+							//some useful data
+
+							$callBackQuery['callBackMsgId'] = $update['callback_query']['message']['message_id'];
+							$callBackQuery['callBackMsgFromId'] = $update['callback_query']['message']['from']['id'];
+							$callBackQuery['callBackMsgFromFirstName'] = $update['callback_query']['message']['from']['first_name'];
+							$callBackQuery['callBackMsgFromUserName'] = $update['callback_query']['message']['from']['username'];
+
+							$callBackQuery['callBackMsgChatId'] = $update['callback_query']['message']['chat']['id'];
+							$callBackQuery['callBackMsgChatFirstName'] = $update['callback_query']['message']['chat']['first_name'];
+							$callBackQuery['callBackMsgChatLastName'] = $update['callback_query']['message']['chat']['last_name'];
+							$callBackQuery['callBackMsgChatUserName'] = $update['callback_query']['message']['chat']['username'];
+							$callBackQuery['callBackMsgChatType'] = $update['callback_query']['message']['chat']['type'];
+
+							$callBackQuery['callBackMsgDate'] = $update['callback_query']['message']['date'];
+							$callBackQuery['callBackMsgText'] = $update['callback_query']['message']['text'];
+
+
+							break;
+
+						case 'inline_message_id':
+
+							$callBackQuery['callBackQueryInlineMessageId'] = $callBackValue;
+
+							break;
+
+						case 'chat_instance':
+
+							$callBackQuery['chatInstance'] = $callBackValue;
+
+							break;
+
+						case 'data':
+
+							$callBackQuery['callBackData'] = $callBackValue;
+
+							break;
+
+						case 'game_short_name':
+
+							$callBackQuery['callBackQueryGameShortName'] = $callBackValue;
+
+							break;
+
+					}
+
+				}
+			}
+		}
+	}
+	return $callBackQuery;
 
 }
 
@@ -797,50 +796,50 @@ function getCallBackQuery($update)
 function sendMessage($chatId, $message, $options = null)
 {
 
-    $url = API_URL . "/sendMessage?chat_id=" . $chatId . "&text=" . urlencode($message);
+	$url = API_URL . "/sendMessage?chat_id=" . $chatId . "&text=" . urlencode($message);
 
-    if ($options != null) {
+	if ($options != null) {
 
-        foreach ($options as $key => $value) {
+		foreach ($options as $key => $value) {
 
 
-            switch ($key) {
+			switch ($key) {
 
-                case 'parse_mode':
+				case 'parse_mode':
 
-                    $url .= '&parse_mode=' . $value;
+					$url .= '&parse_mode=' . $value;
 
-                    break;
+					break;
 
-                case 'disable_web_page_preview':
+				case 'disable_web_page_preview':
 
-                    $url .= '&disable_web_page_preview=' . $value;
+					$url .= '&disable_web_page_preview=' . $value;
 
-                    break;
+					break;
 
-                case 'disable_notification':
+				case 'disable_notification':
 
-                    $url .= '&disable_notification=' . $value;
+					$url .= '&disable_notification=' . $value;
 
-                    break;
+					break;
 
-                case 'reply_to_message_id':
+				case 'reply_to_message_id':
 
-                    $url .= '&reply_to_message_id=' . $value;
+					$url .= '&reply_to_message_id=' . $value;
 
-                    break;
+					break;
 
-                case 'reply_markup':
+				case 'reply_markup':
 
-                    $url .= '&reply_markup=' . $value;
+					$url .= '&reply_markup=' . $value;
 
-                    break;
-            }
+					break;
+			}
 
-        }
-    }
+		}
+	}
 
-    file_get_contents($url);
+	file_get_contents($url);
 
 }
 
@@ -856,8 +855,8 @@ function sendMessage($chatId, $message, $options = null)
 function answerCallBackQuery($callBackId, $message = null)
 {
 
-    $url = API_URL . "/answerCallbackQuery?callback_query_id=" . $callBackId . "&text=" . $message;
-    file_get_contents($url);
+	$url = API_URL . "/answerCallbackQuery?callback_query_id=" . $callBackId . "&text=" . $message;
+	file_get_contents($url);
 
 }
 
@@ -880,59 +879,59 @@ function createButton($keys, $one_time_keyboard = false, $resize_keyboard = true
 {
 
 
-    $keyBoard = array();
-    $keyBoardRow = array();
-    $text = '';
+	$keyBoard = array();
+	$keyBoardRow = array();
+	$text = '';
 
-    foreach ($keys as $key => $value) {
+	foreach ($keys as $key => $value) {
 
-        // we need new row keyboard
-        if ($value === '#newRow') {
+		// we need new row keyboard
+		if ($value === '#newRow') {
 
-            array_push($keyBoard, $keyBoardRow);
-            $keyBoardRow = array();
+			array_push($keyBoard, $keyBoardRow);
+			$keyBoardRow = array();
 
-        } else {
+		} else {
 
-            // is that share phone button?
-            if ($key === 'request_contact' && $value === true) {
+			// is that share phone button?
+			if ($key === 'request_contact' && $value === true) {
 
-                array_push($keyBoardRow, array('text' => $text, 'request_contact' => $value));
+				array_push($keyBoardRow, array('text' => $text, 'request_contact' => $value));
 
-                //is that share location button?
-            }elseif ($key === 'request_location' && $value === true){
+				//is that share location button?
+			} elseif ($key === 'request_location' && $value === true) {
 
-                array_push($keyBoardRow, array('text' => $text, 'request_location' => $value));
+				array_push($keyBoardRow, array('text' => $text, 'request_location' => $value));
 
-            } else {
-                // is that the text of share phone number?
-                if ($key === 'textShareNumber') {
+			} else {
+				// is that the text of share phone number?
+				if ($key === 'textShareNumber') {
 
-                    $text = $value;
-                //is that the text of share location button?
-                }elseif ($key === 'textShareLocation'){
+					$text = $value;
+					//is that the text of share location button?
+				} elseif ($key === 'textShareLocation') {
 
-                    $text = $value;
+					$text = $value;
 
-                } else {
+				} else {
 
-                    // push key's in row
-                    array_push($keyBoardRow, $value);
+					// push key's in row
+					array_push($keyBoardRow, $value);
 
-                }
-            }
-        }
-    }
-    array_push($keyBoard, $keyBoardRow);
+				}
+			}
+		}
+	}
+	array_push($keyBoard, $keyBoardRow);
 
-    $replyMarkup = array(
-        'keyboard' => $keyBoard,
-        'one_time_keyboard' => $one_time_keyboard,
-        'resize_keyboard' => $resize_keyboard,
-        'selective' => $selective
-    );
+	$replyMarkup = array(
+		'keyboard' => $keyBoard,
+		'one_time_keyboard' => $one_time_keyboard,
+		'resize_keyboard' => $resize_keyboard,
+		'selective' => $selective
+	);
 
-    return json_encode($replyMarkup, true);
+	return json_encode($replyMarkup, true);
 
 }
 
@@ -948,47 +947,47 @@ function createButton($keys, $one_time_keyboard = false, $resize_keyboard = true
 
 function createInnerButton($keys)
 {
-    $inlineBoard = array();
-    $inlineKeyBoardRow = array();
+	$inlineBoard = array();
+	$inlineKeyBoardRow = array();
 
-    foreach ($keys as $key => $value) {
+	foreach ($keys as $key => $value) {
 
-        if ($value === '#newRow') {
+		if ($value === '#newRow') {
 
-            array_push($inlineBoard, $inlineKeyBoardRow);
-            $inlineKeyBoardRow = array();
+			array_push($inlineBoard, $inlineKeyBoardRow);
+			$inlineKeyBoardRow = array();
 
-        } else {
+		} else {
 
-            //is that url button ?
-            if (substr($value, 0, strpos($value, ".")) === 'url') {
+			//is that url button ?
+			if (substr($value, 0, strpos($value, ".")) === 'url') {
 
-                array_push($inlineKeyBoardRow, array("text" => $key, "url" => substr($value, strpos($value, ".") + 1)));
+				array_push($inlineKeyBoardRow, array("text" => $key, "url" => substr($value, strpos($value, ".") + 1)));
 
-                //is that callBack button?
-            } elseif (substr($value, 0, strpos($value, ".")) === 'callBack') {
+				//is that callBack button?
+			} elseif (substr($value, 0, strpos($value, ".")) === 'callBack') {
 
-                array_push($inlineKeyBoardRow, array("text" => $key, "callback_data" => substr($value, strpos($value, ".") + 1)));
+				array_push($inlineKeyBoardRow, array("text" => $key, "callback_data" => substr($value, strpos($value, ".") + 1)));
 
-                //is that switch to inline buttons
-            } elseif (substr($value, 0, strpos($value, ".")) === 'switch') {
+				//is that switch to inline buttons
+			} elseif (substr($value, 0, strpos($value, ".")) === 'switch') {
 
-                array_push($inlineKeyBoardRow, array("text" => $key, "switch" => substr($value, strpos($value, ".") + 1)));
+				array_push($inlineKeyBoardRow, array("text" => $key, "switch" => substr($value, strpos($value, ".") + 1)));
 
-            }
+			}
 
 
-        }
+		}
 
-    }
+	}
 
-    array_push($inlineBoard, $inlineKeyBoardRow);
+	array_push($inlineBoard, $inlineKeyBoardRow);
 
-    $inlineKeyBoard = array(
-        "inline_keyboard" => $inlineBoard
-    );
+	$inlineKeyBoard = array(
+		"inline_keyboard" => $inlineBoard
+	);
 
-    return json_encode($inlineKeyBoard);
+	return json_encode($inlineKeyBoard);
 
 }
 
@@ -1007,96 +1006,96 @@ function createInnerButton($keys)
 function sendFile($options)
 {
 
-    $typeSending = '';
-    $data = '';
+	$typeSending = '';
+	$data = '';
 
-    // need real path of your file
-    $fileUrl = new CURLFile(realpath($options['path_file']));
+	// need real path of your file
+	$fileUrl = new CURLFile(realpath($options['path_file']));
 
-    //what url must be ? and what is the options?
-    switch ($options['type']) {
+	//what url must be ? and what is the options?
+	switch ($options['type']) {
 
-        case 'photo':
-            $typeSending = '/sendPhoto';
-            break;
+		case 'photo':
+			$typeSending = '/sendPhoto';
+			break;
 
-        case 'audio':
-            $typeSending = '/sendAudio';
-            break;
+		case 'audio':
+			$typeSending = '/sendAudio';
+			break;
 
-        case 'document':
-            $typeSending = '/sendDocument';
-            break;
+		case 'document':
+			$typeSending = '/sendDocument';
+			break;
 
-        case 'sticker':
-            $typeSending = '/sendSticker';
-            break;
+		case 'sticker':
+			$typeSending = '/sendSticker';
+			break;
 
-        case 'video':
-            $typeSending = '/sendVideo';
-            break;
+		case 'video':
+			$typeSending = '/sendVideo';
+			break;
 
-        case 'voice':
-            $typeSending = '/sendVoice';
-            break;
+		case 'voice':
+			$typeSending = '/sendVoice';
+			break;
 
-        case 'video_note':
-            $typeSending = '/sendVideoNote';
-            break;
+		case 'video_note':
+			$typeSending = '/sendVideoNote';
+			break;
 
-    }
+	}
 
-    foreach ($options as $key => $value) {
+	foreach ($options as $key => $value) {
 
-        if ($key !== 'path_file') {
-            if ($key === 'type') {
-                $data[$value] = $fileUrl;
-            } else {
-                $data[$key] = $value;
-            }
-        }
-    }
+		if ($key !== 'path_file') {
+			if ($key === 'type') {
+				$data[$value] = $fileUrl;
+			} else {
+				$data[$key] = $value;
+			}
+		}
+	}
 
-    $ch = curl_init(API_URL . $typeSending);
-    curl_setopt($ch, CURLOPT_HEADER, false);
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-    curl_setopt($ch, CURLOPT_POST, 1);
-    curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
-    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+	$ch = curl_init(API_URL . $typeSending);
+	curl_setopt($ch, CURLOPT_HEADER, false);
+	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+	curl_setopt($ch, CURLOPT_POST, 1);
+	curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
+	curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
 
-    //check information
-    $response = $result = curl_exec($ch);
+	//check information
+	$response = $result = curl_exec($ch);
 
-    if ($response === false) {
-        $errno = curl_errno($ch);
-        $error = curl_error($ch);
-        error_log("Curl returned error $errno: $error\n");
-        curl_close($ch);
-        return false;
-    }
+	if ($response === false) {
+		$errno = curl_errno($ch);
+		$error = curl_error($ch);
+		error_log("Curl returned error $errno: $error\n");
+		curl_close($ch);
+		return false;
+	}
 
-    $http_code = intval(curl_getinfo($ch, CURLINFO_HTTP_CODE));
-    curl_close($ch);
+	$http_code = intval(curl_getinfo($ch, CURLINFO_HTTP_CODE));
+	curl_close($ch);
 
-    if ($http_code >= 500) {
-        // do not wat to DDOS server if something goes wrong
-        sleep(10);
-        return false;
-    } else if ($http_code != 200) {
-        $response = json_decode($response, true);
-        error_log("Request has failed with error {$response['error_code']}: {$response['description']}\n");
-        if ($http_code == 401) {
-            throw new Exception('Invalid access token provided');
-        }
-        return false;
-    } else {
-        $response = json_decode($response, true);
-        if (isset($response['description'])) {
-            error_log("Request was successfull: {$response['description']}\n");
-        }
-        $response = $response['result'];
-    }
-    return $response;
+	if ($http_code >= 500) {
+		// do not wat to DDOS server if something goes wrong
+		sleep(10);
+		return false;
+	} else if ($http_code != 200) {
+		$response = json_decode($response, true);
+		error_log("Request has failed with error {$response['error_code']}: {$response['description']}\n");
+		if ($http_code == 401) {
+			throw new Exception('Invalid access token provided');
+		}
+		return false;
+	} else {
+		$response = json_decode($response, true);
+		if (isset($response['description'])) {
+			error_log("Request was successfull: {$response['description']}\n");
+		}
+		$response = $response['result'];
+	}
+	return $response;
 
 }
 
@@ -1108,62 +1107,76 @@ function sendFile($options)
  * @param $download_path
  *
  *
+ * @return string
  */
 function getFile($fileIds, $download_path)
 {
 
-    switch ($fileIds) {
+	switch ($fileIds) {
 
-        case (!empty($fileIds[3]['file_id'])) :
+		case (!empty($fileIds[3]['file_id'])) :
 
-            $dlUrl = API_URL . "/getFile?file_id=" . $fileIds[3]['file_id'];
-            $file_id = $fileIds[3]['file_id'];
+			$dlUrl = API_URL . "/getFile?file_id=" . $fileIds[3]['file_id'];
+			$file_id = $fileIds[3]['file_id'];
 
-            break;
+			break;
 
-        case (!empty($fileIds[2]['file_id'])):
+		case (!empty($fileIds[2]['file_id'])):
 
-            $dlUrl = API_URL . "/getFile?file_id=" . $fileIds[2]['file_id'];
-            $file_id = $fileIds[2]['file_id'];
+			$dlUrl = API_URL . "/getFile?file_id=" . $fileIds[2]['file_id'];
+			$file_id = $fileIds[2]['file_id'];
 
-            break;
+			break;
 
-        case (!empty($fileIds[1]['file_id'])):
+		case (!empty($fileIds[1]['file_id'])):
 
-            $dlUrl = API_URL . "/getFile?file_id=" . $fileIds[1]['file_id'];
-            $file_id = $fileIds[1]['file_id'];
+			$dlUrl = API_URL . "/getFile?file_id=" . $fileIds[1]['file_id'];
+			$file_id = $fileIds[1]['file_id'];
 
-            break;
+			break;
 
-        case (!empty($fileIds[0]['file_id'])):
+		case (!empty($fileIds[0]['file_id'])):
 
-            $dlUrl = API_URL . "/getFile?file_id=" . $fileIds[0]['file_id'];
-            $file_id = $fileIds[0]['file_id'];
+			$dlUrl = API_URL . "/getFile?file_id=" . $fileIds[0]['file_id'];
+			$file_id = $fileIds[0]['file_id'];
 
-            break;
+			break;
 
-        default:
+		default:
 
-            $dlUrl = API_URL . "/getFile?file_id=" . $fileIds['file_id'];
-            $file_id = $fileIds['file_id'];
+			$dlUrl = API_URL . "/getFile?file_id=" . $fileIds['file_id'];
+			$file_id = $fileIds['file_id'];
 
-            break;
+			break;
 
 
-    }
+	}
 
-    $dlUrl = file_get_contents($dlUrl);
-    $dlUrl = json_decode($dlUrl, true);
+	$dlUrl = file_get_contents($dlUrl);
+	$dlUrl = json_decode($dlUrl, true);
 
-    if (!$dlUrl['result']) {
-        exit;
-    }
+	if (!$dlUrl['result']) {
+		exit;
+	}
 
-    $file = 'https://api.telegram.org/file/bot' . BOT_TOKEN . '/' . $dlUrl['result']['file_path'];
+	$file = 'https://api.telegram.org/file/bot' . BOT_TOKEN . '/' . $dlUrl['result']['file_path'];
 
-    //used file_id for name of the file
-    $img = $download_path . '/' . $file_id . '.' . substr($dlUrl['result']['file_path'], strpos($dlUrl['result']['file_path'], ".") + 1);
-    file_put_contents($img, file_get_contents($file));
+	if (strpos($dlUrl['result']['file_path'], 'stickers') !== false) {
+
+		//used file_id for name of the file
+		$img = $download_path . '/' . $file_id . '.webp';
+		file_put_contents($img, file_get_contents($file));
+
+	} else {
+
+		//used file_id for name of the file
+		$img = $download_path . '/' . $file_id . '.' . substr($dlUrl['result']['file_path'], strpos($dlUrl['result']['file_path'], ".") + 1);
+		file_put_contents($img, file_get_contents($file));
+
+		return  $file_id . '.' . substr($dlUrl['result']['file_path'], strpos($dlUrl['result']['file_path'], ".") + 1);
+
+	}
+	return 0;
 
 }
 
@@ -1177,17 +1190,17 @@ function getFile($fileIds, $download_path)
 function createDbConnection()
 {
 
-    $dbHost = '';
-    $dbUser = '';
-    $dbPass = '';
-    $dbName = '';
-    $connection = mysqli_connect($dbHost, $dbUser, $dbPass, $dbName);
+	$dbHost = '';
+	$dbUser = '';
+	$dbPass = '';
+	$dbName = '';
+	$connection = mysqli_connect($dbHost, $dbUser, $dbPass, $dbName);
 
-    if (mysqli_connect_errno()) {
-        die('Database connection failed: ' . mysqli_connect_error() . '(' . mysqli_connect_errno() . ')');
-    }
+	if (mysqli_connect_errno()) {
+		die('Database connection failed: ' . mysqli_connect_error() . '(' . mysqli_connect_errno() . ')');
+	}
 
-    return $connection;
+	return $connection;
 
 }
 
@@ -1202,7 +1215,7 @@ function createDbConnection()
 function safeString($data)
 {
 
-    return mysqli_real_escape_string(createDbConnection(), $data);
+	return mysqli_real_escape_string(createDbConnection(), $data);
 
 }
 
@@ -1217,17 +1230,17 @@ function safeString($data)
 function runQuery($myQuery)
 {
 
-    $connection = createDbConnection();
+	$connection = createDbConnection();
 
-    $query = $myQuery;
-    $result = mysqli_query($connection, $query);
-    if (!$result) {
-        die('Database query failed');
-    }
+	$query = $myQuery;
+	$result = mysqli_query($connection, $query);
+	if (!$result) {
+		die('Database query failed');
+	}
 
-    mysqli_close($connection);
+	mysqli_close($connection);
 
-    return $result;
+	return $result;
 
 }
 
