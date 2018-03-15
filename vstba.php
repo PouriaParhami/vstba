@@ -33,39 +33,39 @@ define('API_URL', 'https://api.telegram.org/bot' . BOT_TOKEN);
  * @param $type
  * @param $firsName
  * @param $theArray
+ *
  * @return mixed
  *
  */
-function iterateDataBasic($userData, $type, $firsName, $theArray)
-{
+function iterateDataBasic( $userData, $type, $firsName, $theArray ) {
 
 
-	switch ($type) {
+	switch ( $type ) {
 
 		case 'user':
 
-			foreach ($userData as $userDataKey => $userDataValue) {
+			foreach ( $userData as $userDataKey => $userDataValue ) {
 
-				switch ($userDataKey) {
+				switch ( $userDataKey ) {
 
 					case 'id':
-						$theArray[$firsName . 'Id'] = $userDataValue;
+						$theArray[ $firsName . 'Id' ] = $userDataValue;
 						break;
 
 					case 'first_name':
-						$theArray[$firsName . 'FirstName'] = $userDataValue;
+						$theArray[ $firsName . 'FirstName' ] = $userDataValue;
 						break;
 
 					case 'last_name':
-						$theArray[$firsName . 'LastName'] = $userDataValue;
+						$theArray[ $firsName . 'LastName' ] = $userDataValue;
 						break;
 
 					case 'username':
-						$theArray[$firsName . 'UserName'] = $userDataValue;
+						$theArray[ $firsName . 'UserName' ] = $userDataValue;
 						break;
 
 					case 'language_code':
-						$theArray[$firsName . 'LangCode'] = $userDataValue;
+						$theArray[ $firsName . 'LangCode' ] = $userDataValue;
 						break;
 
 				}
@@ -76,48 +76,48 @@ function iterateDataBasic($userData, $type, $firsName, $theArray)
 
 		case 'chat':
 
-			foreach ($userData as $userDataKey => $userDataValue) {
+			foreach ( $userData as $userDataKey => $userDataValue ) {
 
-				switch ($userDataKey) {
+				switch ( $userDataKey ) {
 
 					case 'id':
-						$theArray[$firsName . 'Id'] = $userDataValue;
+						$theArray[ $firsName . 'Id' ] = $userDataValue;
 						break;
 
 					case 'type':
-						$theArray[$firsName . 'Type'] = $userDataValue;
+						$theArray[ $firsName . 'Type' ] = $userDataValue;
 						break;
 
 					case 'title':
-						$theArray[$firsName . 'Title'] = $userDataValue;
+						$theArray[ $firsName . 'Title' ] = $userDataValue;
 						break;
 
 					case 'username':
-						$theArray[$firsName . 'Username'] = $userDataValue;
+						$theArray[ $firsName . 'Username' ] = $userDataValue;
 						break;
 
 					case 'first_name':
-						$theArray[$firsName . 'FirstName'] = $userDataValue;
+						$theArray[ $firsName . 'FirstName' ] = $userDataValue;
 						break;
 
 					case 'last_name':
-						$theArray[$firsName . 'LastName'] = $userDataValue;
+						$theArray[ $firsName . 'LastName' ] = $userDataValue;
 						break;
 
 					case 'all_members_are_administrators':
-						$theArray[$firsName . 'AllMembersAreAdmin'] = $userDataValue;
+						$theArray[ $firsName . 'AllMembersAreAdmin' ] = $userDataValue;
 						break;
 
 					case 'photo':
-						$theArray[$firsName . 'Photo'] = $userDataValue;
+						$theArray[ $firsName . 'Photo' ] = $userDataValue;
 						break;
 
 					case 'description':
-						$theArray[$firsName . 'Description'] = $userDataValue;
+						$theArray[ $firsName . 'Description' ] = $userDataValue;
 						break;
 
 					case 'invite_link':
-						$theArray[$firsName . 'InviteLine'] = $userDataValue;
+						$theArray[ $firsName . 'InviteLine' ] = $userDataValue;
 						break;
 
 				}
@@ -127,37 +127,37 @@ function iterateDataBasic($userData, $type, $firsName, $theArray)
 
 		case 'entities':
 
-			foreach ($userData as $userDataKey => $userDataValue) {
+			foreach ( $userData as $userDataKey => $userDataValue ) {
 
-				switch ($userDataKey) {
+				switch ( $userDataKey ) {
 
 					case 'type':
 
-						$theArray[$firsName . 'Type'] = $userDataValue;
+						$theArray[ $firsName . 'Type' ] = $userDataValue;
 
 						break;
 
 					case 'offset':
 
-						$theArray[$firsName . 'Offset'] = $userDataValue;
+						$theArray[ $firsName . 'Offset' ] = $userDataValue;
 
 						break;
 
 					case 'length':
 
-						$theArray[$firsName . 'Length'] = $userDataValue;
+						$theArray[ $firsName . 'Length' ] = $userDataValue;
 
 						break;
 
 					case 'url':
 
-						$theArray[$firsName . 'Url'] = $userDataValue;
+						$theArray[ $firsName . 'Url' ] = $userDataValue;
 
 						break;
 
 					case 'user':
 
-						$theArray = iterateDataBasic($userData['user'], 'user', 'entitiesUser', $theArray);
+						$theArray = iterateDataBasic( $userData['user'], 'user', 'entitiesUser', $theArray );
 
 						break;
 				}
@@ -166,24 +166,24 @@ function iterateDataBasic($userData, $type, $firsName, $theArray)
 
 		case 'photo':
 
-			foreach ($userData[0] as $userDataKey => $userDataValue) {
+			foreach ( $userData[0] as $userDataKey => $userDataValue ) {
 
-				switch ($userDataKey) {
+				switch ( $userDataKey ) {
 
 					case 'file_id':
-						$theArray[$firsName . 'FileId'] = $userDataValue;
+						$theArray[ $firsName . 'FileId' ] = $userDataValue;
 						break;
 
 					case 'width':
-						$theArray[$firsName . 'Width'] = $userDataValue;
+						$theArray[ $firsName . 'Width' ] = $userDataValue;
 						break;
 
 					case 'height':
-						$theArray[$firsName . 'Height'] = $userDataValue;
+						$theArray[ $firsName . 'Height' ] = $userDataValue;
 						break;
 
 					case 'file_size':
-						$theArray[$firsName . 'gamePhotoFileSize'] = $userDataValue;
+						$theArray[ $firsName . 'gamePhotoFileSize' ] = $userDataValue;
 						break;
 
 				}
@@ -193,16 +193,16 @@ function iterateDataBasic($userData, $type, $firsName, $theArray)
 
 		case 'location':
 
-			foreach ($userData as $userDataKey => $userDataValue) {
+			foreach ( $userData as $userDataKey => $userDataValue ) {
 
-				switch ($userDataKey) {
+				switch ( $userDataKey ) {
 
 					case 'longitude':
-						$theArray[$firsName . 'FileLongitude'] = $userDataValue;
+						$theArray[ $firsName . 'FileLongitude' ] = $userDataValue;
 						break;
 
 					case 'latitude':
-						$theArray[$firsName . 'Latitude'] = $userDataValue;
+						$theArray[ $firsName . 'Latitude' ] = $userDataValue;
 						break;
 
 				}
@@ -219,32 +219,35 @@ function iterateDataBasic($userData, $type, $firsName, $theArray)
  *
  * function return you an array, information about message, like chat_id, text, phone number
  * It's not complete, but you can add more :)
+ *
+ * attention: usage is optional
+ *
  * @param $data
+ *
  * @return array
  *
  *
  */
 
 
-function userMessage($data)
-{
+function userMessageSimplify( $data ) {
 
 	$userMessage = array();
 
-	if ($data !== null) {
+	if ( $data !== null ) {
 
-		foreach ($data as $key => $value) {
+		foreach ( $data as $key => $value ) {
 
-			if ($key === 'update_id') {
+			if ( $key === 'update_id' ) {
 
 				$userMessage['updateId'] = $value;
 			}
 
-			if ($key === 'message') {
+			if ( $key === 'message' ) {
 
-				foreach ($data['message'] as $msKey => $msValue) {
+				foreach ( $data['message'] as $msKey => $msValue ) {
 
-					switch ($msKey) {
+					switch ( $msKey ) {
 
 						case 'message_id':
 							$userMessage['messageId'] = $msValue;
@@ -260,25 +263,25 @@ function userMessage($data)
 
 						case 'from':
 
-							$userMessage = iterateDataBasic($data['message']['from'], 'user', 'from', $userMessage);
+							$userMessage = iterateDataBasic( $data['message']['from'], 'user', 'from', $userMessage );
 
 							break;
 
 						case 'chat':
 
-							$userMessage = iterateDataBasic($data['message']['chat'], 'chat', 'chat', $userMessage);
+							$userMessage = iterateDataBasic( $data['message']['chat'], 'chat', 'chat', $userMessage );
 
 							break;
 
 						case 'forward_from':
 
-							$userMessage = iterateDataBasic($data['message']['forward_from'], 'user', 'forwardFrom', $userMessage);
+							$userMessage = iterateDataBasic( $data['message']['forward_from'], 'user', 'forwardFrom', $userMessage );
 
 							break;
 
 						case 'forward_from_chat':
 
-							$userMessage = iterateDataBasic($data['message']['forward_from_chat'], 'chat', 'forwardFromChat', $userMessage);
+							$userMessage = iterateDataBasic( $data['message']['forward_from_chat'], 'chat', 'forwardFromChat', $userMessage );
 
 							break;
 
@@ -308,7 +311,7 @@ function userMessage($data)
 
 						case 'entities':
 
-							$userMessage = iterateDataBasic($data['message']['entities'][0], 'entities', 'entities', $userMessage);
+							$userMessage = iterateDataBasic( $data['message']['entities'][0], 'entities', 'entities', $userMessage );
 
 							break;
 
@@ -327,9 +330,9 @@ function userMessage($data)
 
 						case 'game':
 
-							foreach ($data['message']['game'] as $gameKey => $gameValue) {
+							foreach ( $data['message']['game'] as $gameKey => $gameValue ) {
 
-								switch ($gameKey) {
+								switch ( $gameKey ) {
 
 									case 'title':
 
@@ -345,7 +348,7 @@ function userMessage($data)
 
 									case 'photo':
 
-										$userMessage = iterateDataBasic($data['message']['game']['photo'], 'photo', 'gamePhoto', $userMessage);
+										$userMessage = iterateDataBasic( $data['message']['game']['photo'], 'photo', 'gamePhoto', $userMessage );
 
 										break;
 
@@ -357,31 +360,31 @@ function userMessage($data)
 
 									case 'text_entities':
 
-										foreach ($data['message']['game']['text_entities'] as $gameTextEntitiKey => $gameTextEntitiValue) {
+										foreach ( $data['message']['game']['text_entities'] as $gameTextEntitiKey => $gameTextEntitiValue ) {
 
-											switch ($gameTextEntitiKey) {
+											switch ( $gameTextEntitiKey ) {
 
 												case 'type';
 
-													$userMessage['textEntitiType'] = $gameTextEntitiValue;
+													$userMessage['textEntitiesType'] = $gameTextEntitiValue;
 
 													break;
 
 												case 'offset':
 
-													$userMessage['textEntitiOffset'] = $gameTextEntitiValue;
+													$userMessage['textEntitiesOffset'] = $gameTextEntitiValue;
 
 													break;
 
 												case 'length':
 
-													$userMessage['textEntitiLength'] = $gameTextEntitiValue;
+													$userMessage['textEntitiesLength'] = $gameTextEntitiValue;
 
 													break;
 
 												case 'url':
 
-													$userMessage['textEntitiUrl'] = $gameTextEntitiValue;
+													$userMessage['textEntitiesUrl'] = $gameTextEntitiValue;
 
 													break;
 
@@ -392,9 +395,9 @@ function userMessage($data)
 
 									case 'animation':
 
-										foreach ($data['message']['game']['animation'] as $gameAnimKey => $gameAnimValue) {
+										foreach ( $data['message']['game']['animation'] as $gameAnimKey => $gameAnimValue ) {
 
-											switch ($gameAnimKey) {
+											switch ( $gameAnimKey ) {
 
 												case 'file_id':
 
@@ -404,8 +407,8 @@ function userMessage($data)
 
 												case 'thumb':
 
-													foreach ($data['message']['game']['animation']['thumb'] as $animThumbKey => $animThumbValue) {
-													}
+													/*foreach ( $data['message']['game']['animation']['thumb'] as $animThumbKey => $animThumbValue ) {
+													}*/
 
 													// switch ()
 
@@ -475,9 +478,9 @@ function userMessage($data)
 
 						case 'new_chat_members' :
 
-							foreach ($data['message']['new_chat_members'] as $newChatMemberKey => $newChatMemberValue)
-
-								$userMessage = iterateDataBasic($data['message']['new_chat_members'], 'user', 'newChatMember', $userMessage);
+							foreach ( $data['message']['new_chat_members'] as $newChatMemberKey => $newChatMemberValue ) {
+								$userMessage = iterateDataBasic( $data['message']['new_chat_members'], 'user', 'newChatMember', $userMessage );
+							}
 
 							break; // it must be 2 array
 
@@ -489,9 +492,9 @@ function userMessage($data)
 
 						case 'contact':
 
-							foreach ($data['message']['contact'] as $contactKey => $contactValue) {
+							foreach ( $data['message']['contact'] as $contactKey => $contactValue ) {
 
-								switch ($contactKey) {
+								switch ( $contactKey ) {
 
 									case 'phone_number':
 
@@ -525,19 +528,19 @@ function userMessage($data)
 
 						case 'location':
 
-							$userMessage = iterateDataBasic($data['message']['location'], 'location', 'location', $userMessage);
+							$userMessage = iterateDataBasic( $data['message']['location'], 'location', 'location', $userMessage );
 
 							break;
 
 						case 'venue':
 
-							foreach ($data['message']['venue'] as $venueKey => $venueValue) {
+							foreach ( $data['message']['venue'] as $venueKey => $venueValue ) {
 
-								switch ($venueKey) {
+								switch ( $venueKey ) {
 
 									case 'location':
 
-										$userMessage = iterateDataBasic($data['message']['venue']['location'], 'location', 'venueLocation', $userMessage);
+										$userMessage = iterateDataBasic( $data['message']['venue']['location'], 'location', 'venueLocation', $userMessage );
 
 										break;
 
@@ -567,13 +570,13 @@ function userMessage($data)
 
 						case 'new_chat_member':
 
-							$userMessage = iterateDataBasic($data['message']['new_chat_member'], 'user', 'newChatMember', $userMessage);
+							$userMessage = iterateDataBasic( $data['message']['new_chat_member'], 'user', 'newChatMember', $userMessage );
 
 							break;
 
 						case 'left_chat_member':
 
-							$userMessage = iterateDataBasic($data['message']['left_chat_member'], 'user', 'leftChatMember', $userMessage);
+							$userMessage = iterateDataBasic( $data['message']['left_chat_member'], 'user', 'leftChatMember', $userMessage );
 
 							break;
 
@@ -631,9 +634,9 @@ function userMessage($data)
 
 						case'invoice':
 
-							foreach ($data['message']['invoice'] as $invoiceKey => $invoiceValue) {
+							foreach ( $data['message']['invoice'] as $invoiceKey => $invoiceValue ) {
 
-								switch ($invoiceKey) {
+								switch ( $invoiceKey ) {
 
 									case 'title':
 
@@ -675,6 +678,7 @@ function userMessage($data)
 			}
 		}
 	}
+
 	return $userMessage;
 
 }
@@ -684,32 +688,35 @@ function userMessage($data)
  *
  * This function give you array, that have callback_query
  * You can use it to get callback_data from inner keyboard
+ *
+ * attention: usage is optional
+ *
  * @param $update
+ *
  * @return array
  */
 
-function getCallBackQuery($update)
-{
+function callBackQuerySimplify( $update ) {
 
 	$callBackQuery = array();
 
-	if ($update !== null) {
+	if ( $update !== null ) {
 
 
-		foreach ($update as $updateKey => $updateValue) {
+		foreach ( $update as $updateKey => $updateValue ) {
 
 
-			if ($updateKey === 'update_id') {
+			if ( $updateKey === 'update_id' ) {
 
 				$callBackQuery['updateId'] = $updateValue;
 
 			}
 
-			if ($updateKey === 'callback_query') {
+			if ( $updateKey === 'callback_query' ) {
 
-				foreach ($update['callback_query'] as $callBackKey => $callBackValue) {
+				foreach ( $update['callback_query'] as $callBackKey => $callBackValue ) {
 
-					switch ($callBackKey) {
+					switch ( $callBackKey ) {
 
 						case 'id':
 
@@ -719,7 +726,7 @@ function getCallBackQuery($update)
 
 						case 'from':
 
-							$callBackQuery = iterateDataBasic($update['callback_query']['from'], 'user', 'callBackFrom', $callBackQuery);
+							$callBackQuery = iterateDataBasic( $update['callback_query']['from'], 'user', 'callBackFrom', $callBackQuery );
 
 							break;
 
@@ -730,16 +737,16 @@ function getCallBackQuery($update)
 
 							//some useful data
 
-							$callBackQuery['callBackMsgId'] = $update['callback_query']['message']['message_id'];
-							$callBackQuery['callBackMsgFromId'] = $update['callback_query']['message']['from']['id'];
+							$callBackQuery['callBackMsgId']            = $update['callback_query']['message']['message_id'];
+							$callBackQuery['callBackMsgFromId']        = $update['callback_query']['message']['from']['id'];
 							$callBackQuery['callBackMsgFromFirstName'] = $update['callback_query']['message']['from']['first_name'];
-							$callBackQuery['callBackMsgFromUserName'] = $update['callback_query']['message']['from']['username'];
+							$callBackQuery['callBackMsgFromUserName']  = $update['callback_query']['message']['from']['username'];
 
-							$callBackQuery['callBackMsgChatId'] = $update['callback_query']['message']['chat']['id'];
+							$callBackQuery['callBackMsgChatId']        = $update['callback_query']['message']['chat']['id'];
 							$callBackQuery['callBackMsgChatFirstName'] = $update['callback_query']['message']['chat']['first_name'];
-							$callBackQuery['callBackMsgChatLastName'] = $update['callback_query']['message']['chat']['last_name'];
-							$callBackQuery['callBackMsgChatUserName'] = $update['callback_query']['message']['chat']['username'];
-							$callBackQuery['callBackMsgChatType'] = $update['callback_query']['message']['chat']['type'];
+							$callBackQuery['callBackMsgChatLastName']  = $update['callback_query']['message']['chat']['last_name'];
+							$callBackQuery['callBackMsgChatUserName']  = $update['callback_query']['message']['chat']['username'];
+							$callBackQuery['callBackMsgChatType']      = $update['callback_query']['message']['chat']['type'];
 
 							$callBackQuery['callBackMsgDate'] = $update['callback_query']['message']['date'];
 							$callBackQuery['callBackMsgText'] = $update['callback_query']['message']['text'];
@@ -777,6 +784,7 @@ function getCallBackQuery($update)
 			}
 		}
 	}
+
 	return $callBackQuery;
 
 }
@@ -791,19 +799,19 @@ function getCallBackQuery($update)
  * @param $message
  * @param $options
  *
+ * @return mixed|null
  */
 
-function sendMessage($chatId, $message, $options = null)
-{
+function sendMessage( $chatId, $message, $options = null ) {
 
-	$url = API_URL . "/sendMessage?chat_id=" . $chatId . "&text=" . urlencode($message);
+	$url = API_URL . "/sendMessage?chat_id=" . $chatId . "&text=" . urlencode( $message );
 
-	if ($options != null) {
+	if ( $options != null ) {
 
-		foreach ($options as $key => $value) {
+		foreach ( $options as $key => $value ) {
 
 
-			switch ($key) {
+			switch ( $key ) {
 
 				case 'parse_mode':
 
@@ -839,24 +847,62 @@ function sendMessage($chatId, $message, $options = null)
 		}
 	}
 
-	file_get_contents($url);
+	return simpleCurl( $url );
 
 }
 
+/**
+ *  create curl
+ * 
+ * @param $url
+ *
+ * @return mixed|null
+ *
+ */
+function simpleCurl( $url ) {
+
+	$ch = curl_init();
+
+	// 2. set the options, including the url
+	curl_setopt( $ch, CURLOPT_URL, $url );
+	curl_setopt( $ch, CURLOPT_RETURNTRANSFER, 1 );
+	curl_setopt( $ch, CURLOPT_HEADER, 0 );
+
+	// 3. execute and fetch the resulting HTML output
+	$output = curl_exec( $ch );
+
+	// 4. free up the curl handle
+	curl_close( $ch );
+
+	if ( $output === false ) {
+
+		echo "cURL Error: " . curl_error( $ch );
+
+		return null;
+
+	} else {
+
+		return $output;
+
+	}
+
+}
 
 /**
  *
  * This function handel answerCallBackQuery
+ *
  * @param $callBackId
  * @param $message
  *
+ * @return mixed|null
  */
-
-function answerCallBackQuery($callBackId, $message = null)
-{
+function answerCallBackQuery( $callBackId, $message = null ) {
 
 	$url = API_URL . "/answerCallbackQuery?callback_query_id=" . $callBackId . "&text=" . $message;
-	file_get_contents($url);
+
+	return simpleCurl( $url );
+
 
 }
 
@@ -872,66 +918,66 @@ function answerCallBackQuery($callBackId, $message = null)
  * @param bool $one_time_keyboard
  * @param bool $resize_keyboard
  * @param bool $selective
+ *
  * @return string
  *
  */
-function createButton($keys, $one_time_keyboard = false, $resize_keyboard = true, $selective = true)
-{
+function createButton( $keys, $one_time_keyboard = false, $resize_keyboard = true, $selective = true ) {
 
 
-	$keyBoard = array();
+	$keyBoard    = array();
 	$keyBoardRow = array();
-	$text = '';
+	$text        = '';
 
-	foreach ($keys as $key => $value) {
+	foreach ( $keys as $key => $value ) {
 
 		// we need new row keyboard
-		if ($value === '#newRow') {
+		if ( $value === '#newRow' ) {
 
-			array_push($keyBoard, $keyBoardRow);
+			array_push( $keyBoard, $keyBoardRow );
 			$keyBoardRow = array();
 
 		} else {
 
 			// is that share phone button?
-			if ($key === 'request_contact' && $value === true) {
+			if ( $key === 'request_contact' && $value === true ) {
 
-				array_push($keyBoardRow, array('text' => $text, 'request_contact' => $value));
+				array_push( $keyBoardRow, array( 'text' => $text, 'request_contact' => $value ) );
 
 				//is that share location button?
-			} elseif ($key === 'request_location' && $value === true) {
+			} elseif ( $key === 'request_location' && $value === true ) {
 
-				array_push($keyBoardRow, array('text' => $text, 'request_location' => $value));
+				array_push( $keyBoardRow, array( 'text' => $text, 'request_location' => $value ) );
 
 			} else {
 				// is that the text of share phone number?
-				if ($key === 'textShareNumber') {
+				if ( $key === 'textShareNumber' ) {
 
 					$text = $value;
 					//is that the text of share location button?
-				} elseif ($key === 'textShareLocation') {
+				} elseif ( $key === 'textShareLocation' ) {
 
 					$text = $value;
 
 				} else {
 
 					// push key's in row
-					array_push($keyBoardRow, $value);
+					array_push( $keyBoardRow, $value );
 
 				}
 			}
 		}
 	}
-	array_push($keyBoard, $keyBoardRow);
+	array_push( $keyBoard, $keyBoardRow );
 
 	$replyMarkup = array(
-		'keyboard' => $keyBoard,
+		'keyboard'          => $keyBoard,
 		'one_time_keyboard' => $one_time_keyboard,
-		'resize_keyboard' => $resize_keyboard,
-		'selective' => $selective
+		'resize_keyboard'   => $resize_keyboard,
+		'selective'         => $selective
 	);
 
-	return json_encode($replyMarkup, true);
+	return json_encode( $replyMarkup, true );
 
 }
 
@@ -941,38 +987,46 @@ function createButton($keys, $one_time_keyboard = false, $resize_keyboard = true
  *  It Work look like createButton function
  *
  * @param $keys
+ *
  * @return string
  *
  */
-
-function createInnerButton($keys)
-{
-	$inlineBoard = array();
+function createInnerButton( $keys ) {
+	$inlineBoard       = array();
 	$inlineKeyBoardRow = array();
 
-	foreach ($keys as $key => $value) {
+	foreach ( $keys as $key => $value ) {
 
-		if ($value === '#newRow') {
+		if ( $value === '#newRow' ) {
 
-			array_push($inlineBoard, $inlineKeyBoardRow);
+			array_push( $inlineBoard, $inlineKeyBoardRow );
 			$inlineKeyBoardRow = array();
 
 		} else {
 
 			//is that url button ?
-			if (substr($value, 0, strpos($value, ".")) === 'url') {
+			if ( substr( $value, 0, strpos( $value, "." ) ) === 'url' ) {
 
-				array_push($inlineKeyBoardRow, array("text" => $key, "url" => substr($value, strpos($value, ".") + 1)));
+				array_push( $inlineKeyBoardRow, array(
+					"text" => $key,
+					"url"  => substr( $value, strpos( $value, "." ) + 1 )
+				) );
 
 				//is that callBack button?
-			} elseif (substr($value, 0, strpos($value, ".")) === 'callBack') {
+			} elseif ( substr( $value, 0, strpos( $value, "." ) ) === 'callBack' ) {
 
-				array_push($inlineKeyBoardRow, array("text" => $key, "callback_data" => substr($value, strpos($value, ".") + 1)));
+				array_push( $inlineKeyBoardRow, array(
+					"text"          => $key,
+					"callback_data" => substr( $value, strpos( $value, "." ) + 1 )
+				) );
 
 				//is that switch to inline buttons
-			} elseif (substr($value, 0, strpos($value, ".")) === 'switch') {
+			} elseif ( substr( $value, 0, strpos( $value, "." ) ) === 'switch' ) {
 
-				array_push($inlineKeyBoardRow, array("text" => $key, "switch" => substr($value, strpos($value, ".") + 1)));
+				array_push( $inlineKeyBoardRow, array(
+					"text"   => $key,
+					"switch" => substr( $value, strpos( $value, "." ) + 1 )
+				) );
 
 			}
 
@@ -981,13 +1035,13 @@ function createInnerButton($keys)
 
 	}
 
-	array_push($inlineBoard, $inlineKeyBoardRow);
+	array_push( $inlineBoard, $inlineKeyBoardRow );
 
 	$inlineKeyBoard = array(
 		"inline_keyboard" => $inlineBoard
 	);
 
-	return json_encode($inlineKeyBoard);
+	return json_encode( $inlineKeyBoard );
 
 }
 
@@ -999,21 +1053,21 @@ function createInnerButton($keys)
  * Type mean what is that your file you want to send ? audio? photo ? ...
  *
  * @param $options
+ *
  * @return bool|mixed
  * @throws Exception
  *
  */
-function sendFile($options)
-{
+function sendFile( $options ) {
 
 	$typeSending = '';
-	$data = '';
+	$data        = '';
 
 	// need real path of your file
-	$fileUrl = new CURLFile(realpath($options['path_file']));
+	$fileUrl = new CURLFile( realpath( $options['path_file'] ) );
 
 	//what url must be ? and what is the options?
-	switch ($options['type']) {
+	switch ( $options['type'] ) {
 
 		case 'photo':
 			$typeSending = '/sendPhoto';
@@ -1045,56 +1099,62 @@ function sendFile($options)
 
 	}
 
-	foreach ($options as $key => $value) {
+	foreach ( $options as $key => $value ) {
 
-		if ($key !== 'path_file') {
-			if ($key === 'type') {
-				$data[$value] = $fileUrl;
+		if ( $key !== 'path_file' ) {
+			if ( $key === 'type' ) {
+				$data[ $value ] = $fileUrl;
 			} else {
-				$data[$key] = $value;
+				$data[ $key ] = $value;
 			}
 		}
 	}
 
-	$ch = curl_init(API_URL . $typeSending);
-	curl_setopt($ch, CURLOPT_HEADER, false);
-	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-	curl_setopt($ch, CURLOPT_POST, 1);
-	curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
-	curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+	$ch = curl_init( API_URL . $typeSending );
+	curl_setopt( $ch, CURLOPT_HEADER, false );
+	curl_setopt( $ch, CURLOPT_RETURNTRANSFER, 1 );
+	curl_setopt( $ch, CURLOPT_POST, 1 );
+	curl_setopt( $ch, CURLOPT_POSTFIELDS, $data );
+	curl_setopt( $ch, CURLOPT_SSL_VERIFYPEER, false );
 
 	//check information
-	$response = $result = curl_exec($ch);
+	$response = curl_exec( $ch );
 
-	if ($response === false) {
-		$errno = curl_errno($ch);
-		$error = curl_error($ch);
-		error_log("Curl returned error $errno: $error\n");
-		curl_close($ch);
+	if ( $response === false ) {
+		$errno = curl_errno( $ch );
+		$error = curl_error( $ch );
+		error_log( "Curl returned error $errno: $error\n" );
+		curl_close( $ch );
+
 		return false;
 	}
 
-	$http_code = intval(curl_getinfo($ch, CURLINFO_HTTP_CODE));
-	curl_close($ch);
+	$http_code = intval( curl_getinfo( $ch, CURLINFO_HTTP_CODE ) );
+	curl_close( $ch );
 
-	if ($http_code >= 500) {
+	if ( $http_code >= 500 ) {
 		// do not wat to DDOS server if something goes wrong
-		sleep(10);
+		sleep( 10 );
+
 		return false;
-	} else if ($http_code != 200) {
-		$response = json_decode($response, true);
-		error_log("Request has failed with error {$response['error_code']}: {$response['description']}\n");
-		if ($http_code == 401) {
-			throw new Exception('Invalid access token provided');
+
+	} else if ( $http_code != 200 ) {
+		$response = json_decode( $response, true );
+		error_log( "Request has failed with error {$response['error_code']}: {$response['description']}\n" );
+		if ( $http_code == 401 ) {
+			throw new Exception( 'Invalid access token provided' );
 		}
+
 		return false;
+
 	} else {
-		$response = json_decode($response, true);
-		if (isset($response['description'])) {
-			error_log("Request was successfull: {$response['description']}\n");
+		$response = json_decode( $response, true );
+		if ( isset( $response['description'] ) ) {
+			error_log( "Request was successfull: {$response['description']}\n" );
 		}
 		$response = $response['result'];
 	}
+
 	return $response;
 
 }
@@ -1109,42 +1169,41 @@ function sendFile($options)
  *
  * @return string
  */
-function getFile($fileIds, $download_path)
-{
+function getFile( $fileIds, $download_path ) {
 
-	switch ($fileIds) {
+	switch ( $fileIds ) {
 
-		case (!empty($fileIds[3]['file_id'])) :
+		case ( ! empty( $fileIds[3]['file_id'] ) ) :
 
-			$dlUrl = API_URL . "/getFile?file_id=" . $fileIds[3]['file_id'];
+			$dlUrl   = API_URL . "/getFile?file_id=" . $fileIds[3]['file_id'];
 			$file_id = $fileIds[3]['file_id'];
 
 			break;
 
-		case (!empty($fileIds[2]['file_id'])):
+		case ( ! empty( $fileIds[2]['file_id'] ) ):
 
-			$dlUrl = API_URL . "/getFile?file_id=" . $fileIds[2]['file_id'];
+			$dlUrl   = API_URL . "/getFile?file_id=" . $fileIds[2]['file_id'];
 			$file_id = $fileIds[2]['file_id'];
 
 			break;
 
-		case (!empty($fileIds[1]['file_id'])):
+		case ( ! empty( $fileIds[1]['file_id'] ) ):
 
-			$dlUrl = API_URL . "/getFile?file_id=" . $fileIds[1]['file_id'];
+			$dlUrl   = API_URL . "/getFile?file_id=" . $fileIds[1]['file_id'];
 			$file_id = $fileIds[1]['file_id'];
 
 			break;
 
-		case (!empty($fileIds[0]['file_id'])):
+		case ( ! empty( $fileIds[0]['file_id'] ) ):
 
-			$dlUrl = API_URL . "/getFile?file_id=" . $fileIds[0]['file_id'];
+			$dlUrl   = API_URL . "/getFile?file_id=" . $fileIds[0]['file_id'];
 			$file_id = $fileIds[0]['file_id'];
 
 			break;
 
 		default:
 
-			$dlUrl = API_URL . "/getFile?file_id=" . $fileIds['file_id'];
+			$dlUrl   = API_URL . "/getFile?file_id=" . $fileIds['file_id'];
 			$file_id = $fileIds['file_id'];
 
 			break;
@@ -1152,31 +1211,65 @@ function getFile($fileIds, $download_path)
 
 	}
 
-	$dlUrl = file_get_contents($dlUrl);
-	$dlUrl = json_decode($dlUrl, true);
+	$dlUrl = simpleCurl( $dlUrl );
 
-	if (!$dlUrl['result']) {
+	if ( $dlUrl !== null ) {
+
+		$dlUrl = json_decode( $dlUrl, true );
+
+	} else {
+
+		return null;
+
+	}
+
+
+	if ( ! $dlUrl['result'] ) {
 		exit;
 	}
 
 	$file = 'https://api.telegram.org/file/bot' . BOT_TOKEN . '/' . $dlUrl['result']['file_path'];
 
-	if (strpos($dlUrl['result']['file_path'], 'stickers') !== false) {
+	if ( strpos( $dlUrl['result']['file_path'], 'stickers' ) !== false ) {
 
 		//used file_id for name of the file
 		$img = $download_path . '/' . $file_id . '.webp';
-		file_put_contents($img, file_get_contents($file));
+
+		$result = simpleCurl( $file );
+
+		if ( $result !== null ) {
+
+			file_put_contents( $img, $result );
+
+		} else {
+
+			return null;
+
+		}
+
+		return 1;
 
 	} else {
 
 		//used file_id for name of the file
-		$img = $download_path . '/' . $file_id . '.' . substr($dlUrl['result']['file_path'], strpos($dlUrl['result']['file_path'], ".") + 1);
-		file_put_contents($img, file_get_contents($file));
+		$img = $download_path . '/' . $file_id . '.' . substr( $dlUrl['result']['file_path'], strpos( $dlUrl['result']['file_path'], "." ) + 1 );
 
-		return  $file_id . '.' . substr($dlUrl['result']['file_path'], strpos($dlUrl['result']['file_path'], ".") + 1);
+		$result = simpleCurl( $file );
+
+		if ( $result !== null ) {
+
+			file_put_contents( $img, $result );
+
+
+		} else {
+
+			return null;
+
+		}
+
+		return $file_id . '.' . substr( $dlUrl['result']['file_path'], strpos( $dlUrl['result']['file_path'], "." ) + 1 );
 
 	}
-	return 0;
 
 }
 
@@ -1187,60 +1280,24 @@ function getFile($fileIds, $download_path)
  *
  *
  */
-function createDbConnection()
-{
+function createDbConnection() {
 
-	$dbHost = '';
-	$dbUser = '';
-	$dbPass = '';
-	$dbName = '';
-	$connection = mysqli_connect($dbHost, $dbUser, $dbPass, $dbName);
+	$host = 'localhost';
+	$db   = 'darkoob2_robot_tutorial';
+	$user = 'darkoob2_pouria';
+	$pass = '-zBXYg;YMz^Y';
 
-	if (mysqli_connect_errno()) {
-		die('Database connection failed: ' . mysqli_connect_error() . '(' . mysqli_connect_errno() . ')');
-	}
+	$dsn = "mysql:host=$host;dbname=$db";
+	$opt = [
+		PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
+		PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+		PDO::ATTR_EMULATE_PREPARES   => false,
+	];
 
-	return $connection;
-
-}
-
-/**
- *
- * mysqli_real_escape_string
- *
- * @param $data
- * @return string
- *
- */
-function safeString($data)
-{
-
-	return mysqli_real_escape_string(createDbConnection(), $data);
+	return new PDO( $dsn, $user, $pass, $opt );
 
 }
 
-/**
- *
- * Connect to mySql DataBase
- * @param $myQuery
- * @return bool|mysqli_result
- *
- */
 
-function runQuery($myQuery)
-{
 
-	$connection = createDbConnection();
-
-	$query = $myQuery;
-	$result = mysqli_query($connection, $query);
-	if (!$result) {
-		die('Database query failed');
-	}
-
-	mysqli_close($connection);
-
-	return $result;
-
-}
 
