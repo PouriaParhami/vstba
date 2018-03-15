@@ -328,21 +328,8 @@ and second parameter is where you want to store files.
         
 * First you must go to VSTBA.php find  *createDbConnection* and enter your,
        Host, user, pass and data base name in $dbHost, $dbUser, $dbPass, $dbName,
-       after that you can use *runQuery* in your code
-       
-    * example:
-    ```
-    runQuery("DELETE  FROM tableName WHERE id=" . $message['chatId'] );
-    ```
+       after that you can use $PDO = createDbConnection(); and you have object of pdo
     
-   * also if you like to use mysqli_real_escape_string, you can use *safeString* function
-       
-        example:
-         
-         ```
-         runQuery("DELETE  FROM tableName WHERE id=" .safeString($message['chatId'])  . " AND ash_msg_msg='0'");
-         ```
-        
 ## More examples
 
 * you can join to this bot *@testPlaceBot* and test it.
