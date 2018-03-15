@@ -1,7 +1,7 @@
 <?php
 
 /**
- *  Welcome to VSTBA V 1.1.2
+ *  Welcome to VSTBA V 3.0.1
  *  Very Simple Telegram Bot API
  *  Author: Pouria Parhami
  *  Organization: darkoobweb
